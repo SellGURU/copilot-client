@@ -45,7 +45,7 @@ export const graphText = `### I. Foundational Aspects of Longevity
    - Screening for Early Interventions and Disease Prevention
    - Evidence-Based Practices and Guidelines for Preventive Health Care
 3. Public Health Measures and Screening
-   - Vaccination Strategies and Epidemiology for the Elderly
+   - Vaccination Strategies and Epidemiology For the Elderly
    - Screening for Early Interventions and Disease Prevention
 4. Environmental and Social Wellbeing
    - Environmental Exposures and Aging
