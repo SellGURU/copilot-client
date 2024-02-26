@@ -4,22 +4,27 @@ import { ControlsContainer, FullScreenControl, SigmaContainer, ZoomControl ,Sear
 import "@react-sigma/core/lib/react-sigma.min.css";
 import { LoadGraph } from './components/LoadGraph';
 import { LayoutForceAtlas2Control } from "@react-sigma/layout-forceatlas2";
+import { SideMenu } from "./components";
 
 function App() {
   return (
     <>
-    <div style={{width:'100%',height:'100vh' ,background:'white'}}>
-        <SigmaContainer style={{ height: "100vh", width: "100%" }}>
-          <LoadGraph />
-        <ControlsContainer position={"bottom-right"}>
-          <ZoomControl />
-          <FullScreenControl />
-          <LayoutForceAtlas2Control autoRunFor={10000} settings={{ settings: { slowDown: 10 } }} />
-        </ControlsContainer>
-        <ControlsContainer position={"top-right"}>
-          <SearchControl style={{ width: "200px" }} />
-        </ControlsContainer>          
-        </SigmaContainer>
+    <div className="flex justify-between items-center" style={{width:'100%',height:'100vh' ,background:'white'}}>
+        <SideMenu></SideMenu>
+        <div className="w-[100%]">
+          <SigmaContainer style={{ height: "100vh", width: "100%" }}>
+            <LoadGraph />
+          <ControlsContainer position={"bottom-right"}>
+            <ZoomControl />
+            <FullScreenControl />
+            <LayoutForceAtlas2Control autoRunFor={10000} settings={{ settings: { slowDown: 10 } }} />
+          </ControlsContainer>
+          <ControlsContainer position={"top-right"}>
+            <SearchControl style={{ width: "200px" }} />
+          </ControlsContainer>          
+          </SigmaContainer>
+
+        </div>
     </div>
     </>
   )
