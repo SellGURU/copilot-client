@@ -1,0 +1,18 @@
+.SideMenu-Container{
+    @apply w-[244px] h-screen bg-[#6432C9]  ;
+}
+.SideMenu-Section{
+    @apply w-full flex flex-col justify-center items-center mt-11 ;
+}
+.SideMenu-Icons{
+    @apply  bg-opacity-45 bg-white rounded-2xl;
+}
+.SideMenu-ItemsPart{
+    @apply  w-full flex flex-col justify-center items-start mt-[60px] space-y-8 text-white ;
+}
+.SideMenu-Items{
+    @apply flex flex-row justify-start cursor-pointer ms-6 items-center gap-[10px];
+}
+.SideMenu-Logout{
+    @apply fixed bottom-10 ;
+}
