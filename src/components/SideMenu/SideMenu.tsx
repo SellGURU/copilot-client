@@ -1,18 +1,27 @@
 import { useState } from 'react';
 import './SideMenu.css';
+import { useNavigate } from 'react-router-dom';
+
+interface SideMenuItem  {
+    title:string
+    src:string
+    path:string
+}
 
 const SideMenu = () => {
-    const [clickedItemIndex, setClickedItemIndex] = useState(null);
-    const sideMenuItems=[ 
-        {title:"Overview" , src:"./icons/Overview.svg" , },
-        {title:"Risks" , src:"./icons/Risks.svg " , },
-        {title:"Interventions" , src:"./icons/Interventions.svg " , },
-        {title:"Biomarkers" , src:"./icons/Biomarkers.svg " , },
-        {title:"Medical Copilot" , src:"./icons/MedicalCopilot.svg " , },
-        {title:"About" , src:"./icons/About.svg " , },
+    const [clickedItem, setClickedItem] = useState<SideMenuItem>();
+    const navigate = useNavigate()
+    const sideMenuItems:Array<SideMenuItem>=[ 
+        {title:"Overview" , src:"./icons/Overview.svg" , path:'/'},
+        {title:"Risks" , src:"./icons/Risks.svg " , path:'/'},
+        {title:"Interventions" , src:"./icons/Interventions.svg " , path:'/' },
+        {title:"Biomarkers" , src:"./icons/Biomarkers.svg " , path:'/' },
+        {title:"Medical Copilot" , src:"./icons/MedicalCopilot.svg " , path:'/MedicalCopilot' },
+        {title:"About" , src:"./icons/About.svg " , path:'/' },
     ];
-    const handleClick = (index:any) => {
-        setClickedItemIndex(index);
+    const handleClick = (item:SideMenuItem) => {
+        setClickedItem(item);
+        navigate(item.path)
     };
 
     return (      
@@ -24,8 +33,8 @@ const SideMenu = () => {
                     {sideMenuItems.map((item,index)=>{
                         return(
                             <>
-                            <div key={index} className="SideMenu-Items" onClick={() => handleClick(index)}>
-                                <div className={clickedItemIndex === index ? 'SideMenu-Icons' : ''}>
+                            <div key={index} className="SideMenu-Items" onClick={() => handleClick(item)}>
+                                <div className={clickedItem?.title === item.title ? 'SideMenu-Icons' : ''}>
                                     <img className="m-2" src={item.src} alt=""  />
                                 </div> 
                                 {item.title}

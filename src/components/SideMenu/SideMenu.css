@@ -1,5 +1,5 @@
 .SideMenu-Container{
-    @apply w-[244px] h-screen bg-[#6432C9]  ;
+    @apply w-[244px] min-w-[244px] h-screen bg-[#6432C9]  ;
 }
 .SideMenu-Section{
     @apply w-full flex flex-col justify-center items-center mt-11 ;
