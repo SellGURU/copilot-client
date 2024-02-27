@@ -1,7 +1,7 @@
 import { ControlsContainer, FullScreenControl, SearchControl, SigmaContainer, ZoomControl } from "@react-sigma/core"
 import { GraphDefault } from "../../components/GraphSubComponents/Graph"
 import { LayoutForceAtlas2Control } from "@react-sigma/layout-forceatlas2"
-import { ChatBox } from "../../components"
+import { ChatBox, ReferenceBox } from "../../components"
 
 const MedicalCopilot = () => {
     return (
@@ -20,7 +20,9 @@ const MedicalCopilot = () => {
             </ControlsContainer>      
                 
             </SigmaContainer>
+
             <div className="absolute bottom-14 left-6">
+                <ReferenceBox></ReferenceBox>
                 <ChatBox></ChatBox>
             </div>
         </div> 
