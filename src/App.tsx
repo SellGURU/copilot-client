@@ -6,7 +6,7 @@ import router from "./router";
 function App() {
   return (
     <>
-    <div className="flex justify-between items-center" style={{width:'100%',height:'100vh' ,background:'white'}}>
+    <div className="flex font-poppins justify-between items-center" style={{width:'100%',height:'100vh' ,background:'white'}}>
         <RouterProvider router={router} />
     </div>
     </>

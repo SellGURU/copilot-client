@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  font-family: Poppins;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url("../src/assets/Fonts/Poppins-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: Poppins;
+  font-weight: 500;
+  src: url("../src/assets/fonts/Poppins-Medium.ttf") format("truetype");
+}
