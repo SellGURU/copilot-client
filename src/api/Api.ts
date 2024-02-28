@@ -3,11 +3,11 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 class Api {
-    protected static base:'portal'|'mobile' = 'portal'
-    protected static base_url:string = 'https://vercel-backend-one-roan.vercel.app/'
+    protected base:'portal'|'mobile' = 'portal'
+    protected base_url:string = 'https://vercel-backend-one-roan.vercel.app/'
 
 
-    protected static post(url:string,data?:any) {
+    protected post(url:string,data?:any) {
         toast.loading('pending ...')
         const response = axios.post(this.base_url+this.base+url,data,{
             headers:{
