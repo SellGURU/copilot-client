@@ -14,7 +14,7 @@ const MedicalCopilot = () => {
     const [text,setText] = useState('')
     const sendToApi = (additinal?:any) => {
         const resolvedData: any = {
-            apikey: '571b4587fcb34b4185b4c8282d0fc71c',
+            apikey: 'd6ea49f5eb214e448e4d339b82a1a8c7',
             getcurrentconvesationid: chats.length > 0 ?  chats[chats.length -1].currentconverationid : 1,
             text: text,
             language: "English",
