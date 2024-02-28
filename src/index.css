@@ -15,3 +15,15 @@
   font-weight: 500;
   src: url("../src/assets/fonts/Poppins-Medium.ttf") format("truetype");
 }
+
+@layer utilities {
+  .inner-circle {
+    background: linear-gradient(90deg, #FFFFFF 0%, #FBFBFB 31%, #EFEFEF 62%, #DBDBDB 93%, #D5D5D5 100%);
+    border: 0.17px solid rgba(255, 255, 255, 1);
+    box-shadow: 0px 7px 10px 0px #0000001A;
+  } 
+  .outer-circle {
+    background: radial-gradient(46.33% 46.33% at 49.94% 49.99%, #D8D9DD 4%, #ECEEF0 55%, #F6F6F7 100%); /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+    box-shadow: 6px 6px 20px 0px rgba(0, 0, 0, 0.1);  
+  }
+}

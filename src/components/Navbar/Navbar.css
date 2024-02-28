@@ -1,0 +1,32 @@
+.Navbar-Container{
+    @apply h-[126px] min-h-[126px] fixed top-0 mt-10 mx-6 w-3/4;
+}
+.Navbar-Section{
+    @apply w-full flex flex-col justify-center items-center ;
+}
+.Navbar-Section-Top{
+    @apply w-full flex flex-row justify-between items-center ;
+}
+.Navbar-Section-SearchBar{
+    background-color: #E8E1DA;
+    @apply w-[374px] h-10  rounded-2xl;
+}
+.Navbar-Section-Notification{
+    background-color: #E8E1DA;
+    @apply flex items-center justify-center w-10 h-10 rounded-full mr-4;
+}
+.Navbar-Section-Profile{
+    @apply flex items-center justify-start ;
+
+}
+.Navbar-Section-Profile-ProfilePic{
+    @apply flex items-center justify-center w-10 h-10 rounded-full mr-2;
+}
+.Navbar-Section-Profile-ProfileName{
+
+}
+.Navbar-Section-Profile-ProfileEmail {
+    color:#86929E;
+    @apply text-xs	font-light	;
+
+}

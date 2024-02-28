@@ -1,0 +1,31 @@
+.Main-Container{
+    @apply w-full h-screen;
+}
+.Main-Section{
+    @apply w-full flex flex-col justify-center items-start mt-[233px] ;
+}
+.Main-Section-Left {
+    @apply w-[65%] flex flex-col items-center justify-center ;
+}
+.Main-Section-Left-RowOne {
+    @apply flex flex-row justify-center items-center;
+}
+.Main-Section-Left-RowTwo{
+    @apply  flex flex-row justify-between items-center w-full px-14 -mt-[120px];
+}
+.Main-Section-Left-RowThree {
+    @apply flex flex-row justify-between items-center w-full px-32 mt-14;
+}
+.Main-Section-Left-RowFour {
+    @apply flex flex-row justify-center items-center w-full px-32 -mt-12 ;
+}
+
+.Main-Section-Left-SubCircle {
+    @apply w-[116px] h-[116px] rounded-full flex flex-col items-center justify-center gap-2 ;
+}
+.Main-Section-Left-MainCircle {
+    @apply  w-[200px] h-[200px] rounded-full flex flex-col items-center justify-center gap-2 ;
+}
+.Main-Section-Left-BackgoundCircle{
+    @apply w-[140px] h-[140px] rounded-full flex items-center justify-center ;
+}
