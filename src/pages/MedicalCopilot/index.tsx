@@ -26,7 +26,7 @@ const MedicalCopilot = () => {
         }
         const flowApi = new FlowTest()
         const newchat = chats
-        if(text.length > 0) {
+        if(text.length > 0 || chats.length == 0) {
             newchat.push({
                 audio_file:'',
                 currentconverationid:'1',
@@ -35,20 +35,20 @@ const MedicalCopilot = () => {
                 message_key:'',
                 text:text
             })
+            setChats(newchat)          
+            flowApi.flow(resolvedData,(res) => {
+                setChats([...newchat,
+                    {
+                        audio_file:res.data.answer.audio_file as string,
+                        currentconverationid:res.data.currentconverationid as string,
+                        from:'Ai',
+                        instanceid:res.data.instanceid as string,
+                        message_key:'',
+                        text:res.data.answer.answer,
+                    }
+                ])
+            })    
         }
-        setChats(newchat)          
-        flowApi.flow(resolvedData,(res) => {
-            setChats([...newchat,
-                {
-                    audio_file:res.data.answer.audio_file as string,
-                    currentconverationid:res.data.currentconverationid as string,
-                    from:'Ai',
-                    instanceid:res.data.instanceid as string,
-                    message_key:'',
-                    text:res.data.answer.answer,
-                }
-            ])
-        })    
         setText('')    
 
     }
