@@ -1,5 +1,5 @@
 import { createHashRouter } from "react-router-dom";
-import { Panel } from "../pages";
+import { Overview, Panel } from "../pages";
 import MedicalCopilot from "../pages/MedicalCopilot";
 
 const router = createHashRouter([
@@ -10,7 +10,11 @@ const router = createHashRouter([
             {
                 path:'MedicalCopilot',
                 element:<MedicalCopilot></MedicalCopilot>
-            }
+            },
+            {
+                path:'Overview',
+                element:<Overview></Overview>
+            }            
         ]
     }
 ])

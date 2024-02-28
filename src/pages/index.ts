@@ -1,3 +1,4 @@
 import Panel from "./Panel";
+import Overview from "./Overview";
 
-export {Panel}
+export {Panel,Overview}
