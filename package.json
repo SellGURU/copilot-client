@@ -11,11 +11,13 @@
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
+    "@headlessui/react": "^1.7.18",
     "@react-sigma/core": "^3.4.2",
     "@react-sigma/layout-circular": "^3.4.2",
     "@react-sigma/layout-forceatlas2": "^3.4.2",
     "@types/chroma-js": "^2.4.4",
     "@types/seedrandom": "^3.0.8",
+    "axios": "^1.6.7",
     "chroma-js": "^2.4.2",
     "graphology": "^0.25.4",
     "graphology-layout-force": "^0.2.4",
@@ -26,12 +28,15 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.1",
+    "react-toastify": "^10.0.4",
     "seedrandom": "^3.0.5",
-    "sigma": "^3.0.0-beta.6"
+    "sigma": "^3.0.0-beta.6",
+    "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
+    "@types/react-modal": "^3.16.3",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "@vitejs/plugin-react": "^4.2.1",

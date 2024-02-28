@@ -1,9 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ControlsContainer, FullScreenControl, SearchControl, SigmaContainer, ZoomControl } from "@react-sigma/core"
 import { GraphDefault } from "../../components/GraphSubComponents/Graph"
 import { LayoutForceAtlas2Control } from "@react-sigma/layout-forceatlas2"
-import { ChatBox, ReferenceBox } from "../../components"
+import { AddAditinalData, ChatBox, ReferenceBox } from "../../components"
+import { useState } from "react"
 
 const MedicalCopilot = () => {
+    const [showAdditinalModal,setShowAdditinalModal] = useState(false)
+    const [additinalData, setAditinalData] = useState<any>({});
     return (
         <>
         <div className="w-[100%] relative">
@@ -23,8 +27,9 @@ const MedicalCopilot = () => {
 
             <div className="absolute bottom-14 left-6">
                 <ReferenceBox></ReferenceBox>
-                <ChatBox></ChatBox>
+                <ChatBox setAditinalData={setAditinalData} openAdditinalData={setShowAdditinalModal}></ChatBox>
             </div>
+            <AddAditinalData data={additinalData} isOpen={showAdditinalModal} onClose={() =>{setShowAdditinalModal(false)}}></AddAditinalData>
         </div> 
         </>
     )
