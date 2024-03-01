@@ -5,7 +5,7 @@ import Api from "./Api";
 class FlowTest extends Api {
     constructor(){
         super();
-        this.base = 'portal'
+        this.base = 'mobile'
     }
     flow(data:any,submit:(res:any) => void) {
         this.post('/flow_for_test',data).then(res => {

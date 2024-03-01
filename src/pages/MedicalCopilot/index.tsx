@@ -10,17 +10,20 @@ import FlowTest from "../../api/Flow"
 const MedicalCopilot = () => {
     const [showAdditinalModal,setShowAdditinalModal] = useState(false)
     const [additinalData, setAditinalData] = useState<any>({});
+    const [additinalDataResolves, setAdditinalDataResolved] = useState<
+        Array<any>
+    >([]);      
     const [chats,setChats] = useState<Array<ChatType>>([])
     const [text,setText] = useState('')
-    const sendToApi = (additinal?:any) => {
+    const sendToApi = () => {
         const resolvedData: any = {
             apikey: 'd6ea49f5eb214e448e4d339b82a1a8c7',
             getcurrentconvesationid: chats.length > 0 ?  chats[chats.length -1].currentconverationid : 1,
             text: text,
             language: "English",
         };  
-        if(additinal){
-            additinal.filter((item: { key: string }) => item.key != 'Language').forEach((item: { key: string | number; value: any }) => {
+        if(additinalDataResolves){
+            additinalDataResolves.filter((item: { key: string }) => item.key != 'Language').forEach((item: { key: string | number; value: any }) => {
                 resolvedData[item.key] = item.value;
             }); 
         }
@@ -73,7 +76,7 @@ const MedicalCopilot = () => {
                 <ReferenceBox></ReferenceBox>
                 <ChatBox sendToApi={sendToApi} text={text} setText={setText} chats={chats} setAditinalData={setAditinalData} openAdditinalData={setShowAdditinalModal}></ChatBox>
             </div>
-            <AddAditinalData sendToApi={sendToApi} data={additinalData} isOpen={showAdditinalModal} onClose={() =>{setShowAdditinalModal(false)}}></AddAditinalData>
+            <AddAditinalData additinalDataResolves={additinalDataResolves} setAdditinalDataResolved={setAdditinalDataResolved} sendToApi={sendToApi} data={additinalData} isOpen={showAdditinalModal} onClose={() =>{setShowAdditinalModal(false)}}></AddAditinalData>
         </div> 
         </>
     )

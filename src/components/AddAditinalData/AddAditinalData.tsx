@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Dialog, Transition } from '@headlessui/react';
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import FormLabel from '../Base/FormLabel';
 
 interface AddAditinalDataProps {
@@ -8,13 +8,17 @@ interface AddAditinalDataProps {
     onClose:() => void
     data:any
     sendToApi :(additinal?:any) => void
+    additinalDataResolves:Array<any>
+    setAdditinalDataResolved:(additinal:Array<any>) => void
 }
 
 const AddAditinalData:React.FC<AddAditinalDataProps> = ({
     isOpen,
     onClose,
     data,
-    sendToApi
+    sendToApi,
+    additinalDataResolves,
+    setAdditinalDataResolved
 }) => {
     const resolveSassionName = () => {
         const date = new Date();
@@ -23,9 +27,6 @@ const AddAditinalData:React.FC<AddAditinalDataProps> = ({
         const day = date.getDate();
         return "Test_" + yers + "_" + month + "_" + day;
     };
-    const [additinalDataResolves, setAdditinalDataResolved] = useState<
-        Array<any>
-    >([]);    
     const makeAdditinaljson = (key: string, value: any) => {
         const resolved: Array<any> = additinalDataResolves;
         resolved.forEach((item: any) => {
@@ -52,7 +53,7 @@ const AddAditinalData:React.FC<AddAditinalDataProps> = ({
     };  
 
     const submit = () => {
-        sendToApi(additinalDataResolves)
+        sendToApi()
     }
     return (
         <>
