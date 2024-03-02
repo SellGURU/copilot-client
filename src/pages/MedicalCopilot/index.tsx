@@ -2,22 +2,26 @@
 import { ControlsContainer, FullScreenControl, SearchControl, SigmaContainer, ZoomControl } from "@react-sigma/core"
 import { GraphDefault } from "../../components/GraphSubComponents/Graph"
 import { LayoutForceAtlas2Control } from "@react-sigma/layout-forceatlas2"
-import { AddAditinalData, ChatBox, ReferenceBox } from "../../components"
+import { AddAditinalData, ChatBox, ReferenceBox, RefrencessData } from "../../components"
 import { useState } from "react"
 import { ChatType } from "../../types"
 import FlowTest from "../../api/Flow"
+import TestPage from "../../api/TestPage"
 
 const MedicalCopilot = () => {
     const [showAdditinalModal,setShowAdditinalModal] = useState(false)
+    const [showRefrencessModal,setShowRefrencessModal] = useState(false)
     const [additinalData, setAditinalData] = useState<any>({});
+    const [relatedNotes, setRelatedNotes] = useState<Array<any>>([]);
     const [additinalDataResolves, setAdditinalDataResolved] = useState<
         Array<any>
-    >([]);      
+    >([]);
+    const apikey = 'd6ea49f5eb214e448e4d339b82a1a8c7'      
     const [chats,setChats] = useState<Array<ChatType>>([])
     const [text,setText] = useState('')
     const sendToApi = () => {
         const resolvedData: any = {
-            apikey: 'd6ea49f5eb214e448e4d339b82a1a8c7',
+            apikey: apikey,
             getcurrentconvesationid: chats.length > 0 ?  chats[chats.length -1].currentconverationid : 1,
             text: text,
             language: "English",
@@ -55,6 +59,18 @@ const MedicalCopilot = () => {
         setText('')    
 
     }
+    const getRefrencess =(selectChat:ChatType) => {
+        const testApi = new TestPage()
+        testApi.relatedNodes({
+            botid: '7b53073af5',
+            apikey: apikey,
+            current_conversation_id:selectChat.currentconverationid,
+            instanceid:selectChat.instanceid            
+        },(res) => {
+            setRelatedNotes(res.data)
+            setShowRefrencessModal(true)
+        })
+    }
     return (
         <>
         <div className="w-[100%] relative">
@@ -74,9 +90,12 @@ const MedicalCopilot = () => {
 
             <div className="absolute bottom-14 left-6">
                 <ReferenceBox></ReferenceBox>
-                <ChatBox sendToApi={sendToApi} text={text} setText={setText} chats={chats} setAditinalData={setAditinalData} openAdditinalData={setShowAdditinalModal}></ChatBox>
+                <ChatBox getRefrences={getRefrencess} sendToApi={sendToApi} text={text} setText={setText} chats={chats} setAditinalData={setAditinalData} openAdditinalData={setShowAdditinalModal}></ChatBox>
             </div>
             <AddAditinalData additinalDataResolves={additinalDataResolves} setAdditinalDataResolved={setAdditinalDataResolved} sendToApi={sendToApi} data={additinalData} isOpen={showAdditinalModal} onClose={() =>{setShowAdditinalModal(false)}}></AddAditinalData>
+            <RefrencessData relatedNodes={relatedNotes} onClose={() => {
+                setShowRefrencessModal(false)
+            }} isOpen={showRefrencessModal}></RefrencessData>
         </div> 
         </>
     )

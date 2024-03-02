@@ -10,9 +10,12 @@ interface ChatBoxProps {
     text:string
     setText:(text:string) => void
     sendToApi :(additinal?:any) => void
+    getRefrences: (chat:ChatType) => void
 }
 
-const ChatBox:React.FC<ChatBoxProps> = ({openAdditinalData,sendToApi,setAditinalData,chats,text,setText}) => {
+const ChatBox:React.FC<ChatBoxProps> = ({
+    openAdditinalData,sendToApi,
+    setAditinalData,chats,text,setText,getRefrences}) => {
     const testPageApi = new TestPage()
     const getAdditionalData = () => {
         testPageApi.additinalData(
@@ -51,8 +54,16 @@ const ChatBox:React.FC<ChatBoxProps> = ({openAdditinalData,sendToApi,setAditinal
                     return (
                         <>
                         {item.from == 'Ai' ?
-                        <div className="bg-[#6432C933] max-w-[247px] rounded-[18px] rounded-tl-[0px] p-5 pt-4 text-xs leading-5 text-[#1A202C]">
-                            {item.text}
+                        <div className='flex w-full'>
+                            <div className="bg-[#6432C933] max-w-[247px] rounded-[18px] rounded-tl-[0px] p-5 pt-4 text-xs leading-5 text-[#1A202C]">
+                                {item.text}
+                            </div>
+                            <div className='ml-1'>
+                                <img onClick={() => {
+                                    getRefrences(item)
+                                }
+                                    } className='cursor-pointer' src="./icons/refIcon.svg" alt="" />
+                            </div>
                         </div>
                         :
                         <div className=" max-w-[247px] rounded-[18px] rounded-tl-[0px] p-5 pt-4 text-xs leading-5 text-[#1A202C]">
