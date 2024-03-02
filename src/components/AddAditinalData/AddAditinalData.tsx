@@ -93,7 +93,7 @@ const AddAditinalData:React.FC<AddAditinalDataProps> = ({
                             <div className="col-span-12 mb-4 px-[21px]">
                                 <FormLabel
                                     htmlFor="modal-form-1"
-                                    className="text-[14px] mb-3 leading-[19.12px] font-[500] text-[#3C3744]"
+                                    className="text-[14px]  leading-[19.12px] font-[500] text-[#3C3744]"
                                 >
                                     <div>Session Name</div>
                                 </FormLabel>
@@ -178,7 +178,7 @@ const AddAditinalData:React.FC<AddAditinalDataProps> = ({
                                         }}
                                         type="number"
                                         min={1}
-                                        className="w-full rounded-[5px] 
+                                        className="w-full rounded-[5px] h-[40px]
                                                 border-[1px] border-[#000000]/10
                                             focus:ring-0 focus:outline-none focus:border-[#000000]/10 placeholder:text-[14px] placeholder:font-[100] placeholder:text-[#92a7c1]/60 placeholder:leading-[19.12px] text-[#3C3744] font-[400] text-[14px]"
                                         />
@@ -205,7 +205,7 @@ const AddAditinalData:React.FC<AddAditinalDataProps> = ({
                                         type="number"
                                         step="0.01"
                                         min={1}
-                                        className="w-full rounded-[5px] 
+                                        className="w-full h-10 rounded-[5px] 
                                                 border-[1px] border-[#000000]/10
                                             focus:ring-0 focus:outline-none focus:border-[#000000]/10 placeholder:text-[14px] placeholder:font-[100] placeholder:text-[#92a7c1]/60 placeholder:leading-[19.12px] text-[#3C3744] font-[400] text-[14px]"
                                         />
@@ -226,7 +226,7 @@ const AddAditinalData:React.FC<AddAditinalDataProps> = ({
                                     </FormLabel>
                                     <div className="flex -mt-1  items-center w-full">
                                         <select
-                                        className={`w-full rounded-[5px] 
+                                        className={`w-full h-10 rounded-[5px] 
                                                 border-[1px] border-[#000000]/10
                                             focus:ring-0 focus:outline-none focus:border-[#000000]/10 placeholder:text-[14px] placeholder:font-[100] placeholder:text-[#92a7c1]/60 placeholder:leading-[19.12px] text-[#3C3744] font-[400] text-[14px]`}
                                         style={{
