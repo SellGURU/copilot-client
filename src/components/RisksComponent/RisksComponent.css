@@ -1,0 +1,65 @@
+.Risks-Container{
+    @apply w-full h-screen;
+}
+.Risks-Section{
+    @apply w-full flex flex-row  items-start mt-[206px];
+}
+.Risks-Section-Left {
+    @apply ml-6 flex flex-col items-center justify-center gap-8;
+}
+.Risks-Section-Left-SubCircle {
+    @apply w-[116px] h-[116px] rounded-full flex flex-col items-center justify-center gap-2 ;
+}
+.Risks-Section-Left-MainCircle {
+    @apply  w-[200px] h-[200px] rounded-full flex flex-col items-center justify-center gap-2 ;
+}
+.Risks-Section-Left-BackgoundCircle{
+    @apply w-[140px] h-[140px] rounded-full flex items-center justify-center ;
+}
+.Risks-Section-Right {
+    @apply w-full flex flex-col justify-center items-center mx-[33px] gap-[50px];
+}
+.Risks-Section-Right-Info{
+    @apply w-full grid grid-cols-2 justify-items-end items-center px-[35px];
+}
+.Risks-Section-Right-Info-Title {
+    @apply font-semibold justify-self-start ;
+}
+.Risks-Section-Right-Info-GuideSection {
+    font-size:10px;
+    @apply grid grid-rows-2 grid-flow-col text-[#3C3744] gap-4 ;
+}
+.Risks-Section-Right-Info-Guide {
+    @apply flex flex-row gap-1 items-center justify-start ;
+}
+.Risks-Section-Right-Info-Guide-Point {
+    @apply w-2 h-2 rounded-full ;
+}
+.Risks-RedPoint {
+    @apply bg-red-color ;
+}
+.Risks-OrangePoint {
+    @apply bg-orange-color ;
+}
+.Risks-PurplePoint {
+    @apply bg-purple-color ;
+}
+.Risks-BluePoint {
+    @apply bg-blue-color ;
+}
+.Risks-Section-Right-Person {
+    @apply absolute top-[300px] ;
+}
+.Risks-Section-Right-Items {
+    @apply flex flex-col gap-2 justify-center items-center ;
+}
+.Risks-Section-Right-BackgoundCircle {
+    @apply w-[82px] h-[82px] rounded-full flex items-center justify-center ;
+}
+.Risks-Section-Right-Items-Title {
+    font-size:10px;
+    color : #253343 ;
+}
+.Risks-Section-Right-Circle {
+    @apply w-[67px] h-[67px] rounded-full flex flex-col items-center justify-center gap-2 ;
+}

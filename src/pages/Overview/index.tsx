@@ -1,9 +1,9 @@
-import Main from "../../components/Main/Main"
+import OverviewComponent from "../../components/OverviewComponent/OverviewComponent"
 
 const Overview = () => {
     return (
         <>
-            <Main></Main>
+            <OverviewComponent></OverviewComponent>
         </>
     )
 }
