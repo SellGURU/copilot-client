@@ -61,7 +61,15 @@ export const GraphDefault: React.FC<GraphDefaultProps> = () => {
           graph.addNode(node.id, { x: positions.xCircular, y: positions.yCircular, size: node.size , label: node.label, color:chroma.random().hex()});
         })
         resolve.edges.map((edges) => {
-          graph.addEdge(edges.source, edges.target);
+          if(graph.hasNode(edges.source) && graph.hasNode(edges.target)){
+            graph.addEdge(edges.source, edges.target);
+          }else {
+            if(!graph.hasNode(edges.source)){
+              console.warn(edges.source + 'is exist  ' + graph.hasNode(edges.source))
+            }else{
+              console.warn(edges.target + 'is exist  ' + graph.hasNode(edges.target))
+            }
+          }
         })
         loadGraph(graph);
         assign()
