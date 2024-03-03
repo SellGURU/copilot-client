@@ -6,6 +6,9 @@ class Position {
     private ylayer2:number = 0
     private ylayer3:number = 0
 
+    private r:number = 100
+    private x_Cirvular: number = -100
+    private calls : number = 0
     get Xlayer1 (){
         this.xlayer1 += 150
         return this.xlayer1
@@ -31,10 +34,28 @@ class Position {
     }    
 
     get Ylayer3 (){
-        this.ylayer3 += 10
+        this.ylayer3 += 45
         return this.ylayer3
     }      
-}
+
+    get xCircular() {
+        return this.x_Cirvular
+    }
+    get yCircular(){
+        // this.x_Cirvular += 10
+        if(this.calls > 200){
+            this.r += 30
+            this.calls = 0
+            this.x_Cirvular = -100
+        }
+        this.calls ++
+        if(this.calls % 2 == 0){
+            this.x_Cirvular += 10
+            return Math.sqrt(Math.pow(this.r,2)  - Math.pow(this.x_Cirvular,2))
+        }
+        return -Math.sqrt(Math.pow(this.r,2)  - Math.pow(this.x_Cirvular,2))
+    }
+} 
 
 const useGraphPosition = () => {
     const position = new Position()

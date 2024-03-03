@@ -7,6 +7,7 @@ import { useState } from "react"
 import { ChatType } from "../../types"
 import FlowTest from "../../api/Flow"
 import TestPage from "../../api/TestPage"
+import { useConstructor } from "../../help"
 
 const MedicalCopilot = () => {
     const [showAdditinalModal,setShowAdditinalModal] = useState(false)
@@ -71,6 +72,9 @@ const MedicalCopilot = () => {
             setShowRefrencessModal(true)
         })
     }
+    useConstructor(() => {
+
+    })
     return (
         <>
         <div className="w-[100%] relative">
@@ -80,7 +84,7 @@ const MedicalCopilot = () => {
             <ControlsContainer position={"bottom-right"}>
                 <ZoomControl />
                 <FullScreenControl />
-                <LayoutForceAtlas2Control autoRunFor={5000} settings={{ settings: { slowDown: 10 } }} />
+                <LayoutForceAtlas2Control  autoRunFor={8000} settings={{ settings: { slowDown: 10 } }} />
             </ControlsContainer>
             <ControlsContainer position={"top-right"}>
                 <SearchControl style={{ width: "200px" }} />

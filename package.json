@@ -21,6 +21,7 @@
     "axios-mock-adapter": "^1.22.0",
     "chroma-js": "^2.4.2",
     "graphology": "^0.25.4",
+    "graphology-layout": "^0.6.1",
     "graphology-layout-force": "^0.2.4",
     "graphology-layout-forceatlas2": "^0.10.1",
     "graphology-types": "^0.24.7",

@@ -7,4 +7,21 @@ type ChatType =  {
   audio_file: string;
 }
 
-export type {ChatType}
+type NodesType = {
+    id: string,
+    label: string,
+    size: number
+}
+
+type EdgeType = {
+    source: string,
+    target: string,
+    weight: number
+}
+
+type GetEdgeAndNodesType = {
+  nodes:Array<NodesType>,
+  edges:Array<EdgeType>
+}
+
+export type {ChatType,NodesType,EdgeType,GetEdgeAndNodesType}
