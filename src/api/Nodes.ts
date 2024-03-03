@@ -8,7 +8,7 @@ class Nodes extends Api {
     }
 
     getAllNodesAndEdges(resolve:(res:GetEdgeAndNodesType) => void){
-     this.post('/get_nodes_edges').then(res => {
+     this.post('/get_nodes_edges',{}).then(res => {
         resolve(res.data)
      })   
     }
