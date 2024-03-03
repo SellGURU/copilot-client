@@ -3,7 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 class Api {
-    protected base:'portal'|'mobile' = 'portal'
+    protected base:'portal'|'mobile'|'copilot' = 'portal'
     protected base_url:string = 'https://vercel-backend-one-roan.vercel.app/'
 
 
