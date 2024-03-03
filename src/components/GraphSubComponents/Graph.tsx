@@ -10,9 +10,9 @@ import Nodes from "../../api/Nodes";
 import { GetEdgeAndNodesType } from "../../types";
 import { useLayoutCircular } from "@react-sigma/layout-circular";
 export interface GraphDefaultProps {
-
+  exeNods:Array<string>
 }
-export const GraphDefault: React.FC<GraphDefaultProps> = () => {
+export const GraphDefault: React.FC<GraphDefaultProps> = ({exeNods}) => {
   const sigma = useSigma();
   const registerEvents = useRegisterEvents();
   const loadGraph = useLoadGraph();
@@ -62,7 +62,7 @@ export const GraphDefault: React.FC<GraphDefaultProps> = () => {
         })
         resolve.edges.map((edges) => {
           if(graph.hasNode(edges.source) && graph.hasNode(edges.target)){
-            graph.addEdge(edges.source, edges.target);
+            graph.addEdge(edges.source, edges.target,{weight: edges.weight});
           }else {
             if(!graph.hasNode(edges.source)){
               console.warn(edges.source + 'is exist  ' + graph.hasNode(edges.source))
@@ -145,8 +145,26 @@ export const GraphDefault: React.FC<GraphDefaultProps> = () => {
   }, [draggedNode, loadGraph, registerEvents, sigma]);
 
   useEffect(() => {
-  
-    //  return layout.stop()      
+    const graphdata = sigma.getGraph();
+    graphdata.forEachNode((node: any) => {
+      if(exeNods.includes(node)){
+        graphdata.forEachInNeighbor(node,(neighbor) => {
+          graphdata.setNodeAttribute(neighbor, "hidden", true)
+          graphdata.forEachInNeighbor(neighbor,(layer3) => {
+            graphdata.setNodeAttribute(layer3, "hidden", true)
+          })
+        })
+
+      }else {
+        graphdata.forEachInNeighbor(node,(neighbor) => {
+          graphdata.setNodeAttribute(neighbor, "hidden", false)
+          graphdata.forEachInNeighbor(neighbor,(layer3) => {
+            graphdata.setNodeAttribute(layer3, "hidden", false)
+          })
+        })        
+      }
+      graphdata.setNodeAttribute(node, "hidden", exeNods.includes(node)?true:false)
+    });   
   })
   useEffect(() => {
     setSettings({
