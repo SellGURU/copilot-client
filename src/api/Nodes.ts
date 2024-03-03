@@ -15,7 +15,7 @@ class Nodes extends Api {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getCatagories(resolve:(res:any) => void){
-        this.post('/get_category_list').then(res => {
+        this.post('/get_category_list',{}).then(res => {
             resolve(res.data)
         })
     }
