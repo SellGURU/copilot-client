@@ -4,7 +4,7 @@ import Api from "./Api";
 class Nodes extends Api {
     constructor(){
         super();
-        this.base = 'portal'
+        this.base = 'copilot'
     }
 
     getAllNodesAndEdges(resolve:(res:GetEdgeAndNodesType) => void){
