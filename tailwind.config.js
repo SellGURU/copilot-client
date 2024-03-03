@@ -15,6 +15,11 @@ export default {
 
 				"soft-color":  "#86929E",
 
+				"red-color":  "#FF3E5D",
+				"orange-color":  "#FC8F2B",
+				"purple-color":  "#873FEF",
+				"blue-color":  "#62CFD8",
+
 			},
       fontFamily: {
         'poppins' :['Poppins']

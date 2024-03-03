@@ -1,0 +1,18 @@
+.Overview-Container{
+    @apply w-full h-screen;
+}
+.Overview-Section{
+    @apply w-full flex flex-col justify-center items-start mt-[233px] ;
+}
+.Overview-Section-Left {
+    @apply w-[65%] grid grid-cols-3 grid-flow-row items-center justify-items-center  ;
+}
+.Overview-Section-Left-SubCircle {
+    @apply w-[116px] h-[116px] rounded-full flex flex-col items-center justify-center gap-2 ;
+}
+.Overview-Section-Left-MainCircle {
+    @apply  w-[200px] h-[200px] rounded-full flex flex-col items-center justify-center gap-2 ;
+}
+.Overview-Section-Left-BackgoundCircle{
+    @apply w-[140px] h-[140px] rounded-full flex items-center justify-center ;
+}

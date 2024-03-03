@@ -13,7 +13,7 @@ const SideMenu = () => {
     const navigate = useNavigate()
     const sideMenuItems:Array<SideMenuItem>=[ 
         {title:"Overview" , src:"./icons/Overview.svg" , path:'/overview'},
-        {title:"Risks" , src:"./icons/Risks.svg " , path:'/'},
+        {title:"Risks" , src:"./icons/Risks.svg " , path:'/risks'},
         {title:"Interventions" , src:"./icons/Interventions.svg " , path:'/' },
         {title:"Biomarkers" , src:"./icons/Biomarkers.svg " , path:'/' },
         {title:"Medical Copilot" , src:"./icons/MedicalCopilot.svg " , path:'/MedicalCopilot' },
