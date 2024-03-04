@@ -15,6 +15,7 @@ type NodesType = {
     size: number
     category1:string
     category2:string
+    color:string
 }
 
 type EdgeType = {
