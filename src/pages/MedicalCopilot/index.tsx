@@ -18,7 +18,7 @@ const MedicalCopilot = () => {
     const [additinalDataResolves, setAdditinalDataResolved] = useState<
         Array<any>
     >([]);
-    const apikey = 'd6ea49f5eb214e448e4d339b82a1a8c7'      
+    const apikey = 'df1d60cca09d4ddda756c6aae1423567'      
     const [chats,setChats] = useState<Array<ChatType>>([])
     const [text,setText] = useState('')
     const sendToApi = () => {
