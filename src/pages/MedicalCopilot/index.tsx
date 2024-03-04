@@ -47,12 +47,12 @@ const MedicalCopilot = () => {
         flowApi.flow(resolvedData,(res) => {
             setChats([...newchat,
                 {
-                    audio_file:res.data.answer.audio_file as string,
+                    audio_file:'',
                     currentconverationid:res.data.currentconverationid as string,
                     from:'Ai',
                     instanceid:res.data.instanceid as string,
                     message_key:'',
-                    text:res.data.answer.answer,
+                    text:res.data.answer,
                 }
             ])
         })    

@@ -41,22 +41,11 @@ const useMoch = () => {
   )
   Api.post('/flow',
 {
-  "answer": {
-      "Command": "file_information",
-      "answer": "Educate your patient about the importance of good sleep hygiene. This includes maintaining a consistent sleep schedule, creating a relaxing bedtime routine, and ensuring the sleep environment is comfortable and conducive to sleep.",
-      "suggestion_list": [],
-      "products": {},
-      "photo_file": "",
-      "audio_file_name": "audio_1709130789_71a92e5c13_English_en-US-JennyNeural.wav",
-      "video_file": null,
-      "audio_file": null
-  },
-  "currentconverationid": 22171315361,
-  "instanceid": "293f8f61-7e7e-41a9-8635-10cff947965f",
-  "message_state": true,
-  "message_key": null,
-  "resources ": []
-}  
+    "answer": "I apologize, but as an AI language model, I don't have access to your personal information or the ability to keep track of it. I can provide general information and answer questions based on common knowledge and research, but I cannot provide personalized advice or recommendations. It's always best to consult with a healthcare professional or relevant specialist who can consider your specific circumstances and provide tailored advice.",
+    "currentconverationid": 98244459039,
+    "instanceid": "a7f53d15-f028-47b2-a220-7ffa6b2dd882",
+    "message_state": true
+} 
   )
   Api.post('/get_related_nodes_for_test',[
     {
