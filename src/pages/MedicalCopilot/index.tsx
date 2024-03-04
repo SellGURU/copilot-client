@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ControlsContainer, FullScreenControl, SearchControl, SigmaContainer, ZoomControl } from "@react-sigma/core"
 import { GraphDefault } from "../../components/GraphSubComponents/Graph"
-import { LayoutForceAtlas2Control } from "@react-sigma/layout-forceatlas2"
+// import { LayoutForceAtlas2Control } from "@react-sigma/layout-forceatlas2"
 import { AddAditinalData, AdditinalBox, FilterBox, RefrencessData } from "../../components"
 import { useState } from "react"
 import { ChatType } from "../../types"
@@ -24,8 +24,9 @@ const MedicalCopilot = () => {
     const sendToApi = () => {
         const resolvedData: any = {
             apikey: apikey,
-            getcurrentconvesationid: chats.length > 0 ?  chats[chats.length -1].currentconverationid : 1,
+            getcurrentconvesationid: 1,
             text: text,
+            exclude_list:exeNods,
             language: "English",
         };  
         if(additinalDataResolves){
@@ -55,6 +56,7 @@ const MedicalCopilot = () => {
                     text:res.data.answer,
                 }
             ])
+            setAdditinalDataResolved([])
         })    
 
         setText('')    
@@ -83,7 +85,7 @@ const MedicalCopilot = () => {
             <ControlsContainer position={"bottom-right"}>
                 <ZoomControl />
                 <FullScreenControl />
-                <LayoutForceAtlas2Control  autoRunFor={8000} settings={{ settings: { slowDown: 10 } }} />
+                {/* <LayoutForceAtlas2Control  autoRunFor={8000} settings={{ settings: { slowDown: 10 } }} /> */}
             </ControlsContainer>
             <ControlsContainer position={"top-right"}>
                 <SearchControl style={{ width: "200px" }} />
