@@ -63,13 +63,14 @@ const MedicalCopilot = () => {
     const getRefrencess =(selectChat:ChatType) => {
         const testApi = new TestPage()
         testApi.relatedNodes({
-            botid: '7b53073af5',
             apikey: apikey,
             current_conversation_id:selectChat.currentconverationid,
             instanceid:selectChat.instanceid            
         },(res) => {
-            setRelatedNotes(res.data)
-            setShowRefrencessModal(true)
+            if(res.data != 'No valid related_nodes found'){
+                setRelatedNotes(res.data)
+                setShowRefrencessModal(true)
+            }
         })
     }
 
