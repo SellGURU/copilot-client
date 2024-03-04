@@ -1,33 +1,49 @@
 import Api from "./Api";
 
 const useMoch = () => {
-  Api.post('/get_additional_data_for_test',
-  {
+  Api.post('/get_additional_data',
+{
     "additional_data": {
         "Age": "int",
         "Gender": [
             "Male",
             "Female"
         ],
-        "Goals ": "textarea",
-        "Height (cm)": "float",
-        "Weight (kg)": "float",
-        "Educational Level": [
-            "Primary School Level",
-            "Graduate Degree Level"
+        "Answer Type": [
+            "With example",
+            "Without example"
         ],
-        "Medical Conditions": "str",
-        "Language": [
-            "English"
-        ]
+        "Sleep States": [
+            "Good",
+            "Bad",
+            "Restless",
+            "Average",
+            "Excellent",
+            "Poor",
+            "Interrupted"
+        ],
+        "Stress Levels": [
+            "Low",
+            "Moderate",
+            "High",
+            "Very High",
+            "Extreme"
+        ],
+        "BMI Classification": [
+            "Underweight",
+            "Normal weight",
+            "Overweight",
+            "Obesity"
+        ],
+        "Medical Conditions": "str"
     }
-  }
+}
   )
-  Api.post('/flow_for_test',
+  Api.post('/flow',
 {
   "answer": {
       "Command": "file_information",
-      "answer": "How can I help you today?",
+      "answer": "Educate your patient about the importance of good sleep hygiene. This includes maintaining a consistent sleep schedule, creating a relaxing bedtime routine, and ensuring the sleep environment is comfortable and conducive to sleep.",
       "suggestion_list": [],
       "products": {},
       "photo_file": "",

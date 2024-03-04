@@ -19,7 +19,6 @@ const ChatBox:React.FC<ChatBoxProps> = ({
     const testPageApi = new TestPage()
     const getAdditionalData = () => {
         testPageApi.additinalData(
-            { botid: '7b53073af5' },
             (res) => {
             if (res.data.additional_data) {
                 setAditinalData(res.data.additional_data);

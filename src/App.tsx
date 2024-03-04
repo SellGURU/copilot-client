@@ -4,13 +4,13 @@ import { RouterProvider } from "react-router-dom";
 import router from "./router";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-// import { useMoch } from "/api/--MOCH--";
+import { useMoch } from "./api/--MOCH--";
 
 function App() {
-  // useMoch()
+  useMoch()
   return (
     <>
-    <div className="flex font-poppins justify-between items-center" style={{width:'100%',height:'100vh' ,background:'white'}}>
+    <div className="flex font-poppins bg-[#F8F9FE] justify-between items-center" style={{width:'100%',height:'100vh' ,background:'white'}}>
         <RouterProvider router={router} />
         <ToastContainer />
     </div>

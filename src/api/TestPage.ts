@@ -12,8 +12,8 @@ class TestPage extends Api{
             submit(res)
         })
     } 
-    additinalData(data:getApikey,submit:(res:any) => void) {
-        this.post('/get_additional_data_for_test',data).then(res => {
+    additinalData(submit:(res:any) => void) {
+        this.post('/get_additional_data',{}).then(res => {
             submit(res)
         })
     }    
