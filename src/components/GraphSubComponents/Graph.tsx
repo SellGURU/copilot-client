@@ -58,7 +58,7 @@ export const GraphDefault: React.FC<GraphDefaultProps> = ({exeNods}) => {
     const nodesApi = new Nodes()
     nodesApi.getAllNodesAndEdges((resolve:GetEdgeAndNodesType) => {
         resolve.nodes.map((node) => {
-          graph.addNode(node.id, { x: positions.xCircular, y: positions.yCircular, size: node.size , label: node.label, color:chroma.random().hex()});
+          graph.addNode(node.id, { x: positions.xCircular, y: positions.yCircular,category1:node.category1,category2:node.category2, size: node.size , label: node.label, color:chroma.random().hex()});
         })
         resolve.edges.map((edges) => {
           if(graph.hasNode(edges.source) && graph.hasNode(edges.target)){
@@ -146,25 +146,28 @@ export const GraphDefault: React.FC<GraphDefaultProps> = ({exeNods}) => {
 
   useEffect(() => {
     const graphdata = sigma.getGraph();
-    graphdata.forEachNode((node: any) => {
-      if(exeNods.includes(node)){
-        graphdata.forEachInNeighbor(node,(neighbor) => {
-          graphdata.setNodeAttribute(neighbor, "hidden", true)
-          graphdata.forEachInNeighbor(neighbor,(layer3) => {
-            graphdata.setNodeAttribute(layer3, "hidden", true)
-          })
-        })
+    // graphdata.forEachNode((node: any) => {
+    //   if(exeNods.includes(node)){
+    //     graphdata.forEachInNeighbor(node,(neighbor) => {
+    //       graphdata.setNodeAttribute(neighbor, "hidden", true)
+    //       graphdata.forEachInNeighbor(neighbor,(layer3) => {
+    //         graphdata.setNodeAttribute(layer3, "hidden", true)
+    //       })
+    //     })
 
-      }else {
-        graphdata.forEachInNeighbor(node,(neighbor) => {
-          graphdata.setNodeAttribute(neighbor, "hidden", false)
-          graphdata.forEachInNeighbor(neighbor,(layer3) => {
-            graphdata.setNodeAttribute(layer3, "hidden", false)
-          })
-        })        
-      }
-      graphdata.setNodeAttribute(node, "hidden", exeNods.includes(node)?true:false)
-    });   
+    //   }else {
+    //     graphdata.forEachInNeighbor(node,(neighbor) => {
+    //       graphdata.setNodeAttribute(neighbor, "hidden", false)
+    //       graphdata.forEachInNeighbor(neighbor,(layer3) => {
+    //         graphdata.setNodeAttribute(layer3, "hidden", false)
+    //       })
+    //     })        
+    //   }
+    //   graphdata.setNodeAttribute(node, "hidden", exeNods.includes(node)?true:false)
+    // });   
+    graphdata.forEachNode((node,{ category1, category2 }) => {
+      graphdata.setNodeAttribute(node, "hidden", exeNods.includes(node) ||exeNods.includes(category1) || exeNods.includes(category2))
+    })
   })
   useEffect(() => {
     setSettings({
