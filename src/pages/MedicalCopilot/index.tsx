@@ -42,7 +42,8 @@ const MedicalCopilot = () => {
             from:'user',
             instanceid:'',
             message_key:'',
-            text:text
+            text:text,
+            additinalData:[]
         })
         setChats(newchat)          
         flowApi.flow(resolvedData,(res) => {
@@ -54,6 +55,7 @@ const MedicalCopilot = () => {
                     instanceid:res.data.instanceid as string,
                     message_key:'',
                     text:res.data.answer,
+                    additinalData:additinalDataResolves
                 }
             ])
             setAdditinalDataResolved([])

@@ -3,7 +3,8 @@ import React, { useState } from "react"
 import TestPage from "../../api/TestPage"
 import FormLabel from "../Base/FormLabel"
 import { ChatType } from "../../types"
-
+import { Tooltip } from 'react-tooltip'
+import {BeatLoader} from "react-spinners";
 interface AdditinalBoxProps {
    setAditinalData:(additinalData:any) =>void
    additinalData:any
@@ -250,17 +251,18 @@ const AdditinalBox:React.FC<AdditinalBoxProps> = ({setAditinalData,getRefrences,
             }
             {
                 !showAdditinal && chats.length > 0 ?
-                    <div  className="bg-white w-[313px] px-5 chatBoxScroolBar overflow-y-scroll pb-5 h-[355px] shadow-lg mb-2 border border-[#F0F0F0] rounded-[18px]">
-                        {chats.map((item:ChatType) => {
+                    <div  className="bg-white w-[313px] px-5 chatBoxScroolBar  overflow-y-scroll pb-5 h-[355px] shadow-lg mb-2 border border-[#F0F0F0] rounded-[18px]">
+                        {chats.map((item:ChatType,index:number) => {
+                            console.log(item)
                             return (
                                 <>
                                 {item.from == 'Ai' ?
-                                <div className='flex w-full'>
+                                <div className='flex w-full '>
                                     <div className="bg-[#6432C933] max-w-[247px] rounded-[18px] rounded-tl-[0px] p-5 pt-4 text-xs leading-5 text-[#1A202C]">
                                         {item.text}
                                     </div>
                                     <div className="w-7">
-                                        <div className='ml-2 w-6 h-6'>
+                                        <div data-tooltip-id={"info-tooltip"+index} className='ml-2 w-6 h-6'>
                                             <img onClick={() => {
                                                 // getRefrences(item)
                                             }
@@ -275,18 +277,52 @@ const AdditinalBox:React.FC<AdditinalBoxProps> = ({setAditinalData,getRefrences,
 
 
                                     </div>
+                                    <Tooltip
+                                    opacity={"98%"}
+                                    style={{
+                                        zIndex: 50,
+                                        backgroundColor: "white",
+                                        color: "#3C3744",
+                                        boxShadow: "0px 0px 6px 1px rgba(0, 0, 0, 0.2)",
+                                    }}
+                                    render={() => (
+                                        <div>
+                                        {item.additinalData.map((item) => {
+                                            return (
+                                            <>
+                                                <div className="text-[#3C3744] mt-2 flex text-[12px]">
+                                                <div className="opacity-80">{item.key}</div>{" "}
+                                                <span>:{item.value}</span>
+                                                </div>
+                                            </>
+                                            );
+                                        })}
+                                        </div>
+                                    )}
+                                    place="right-end"
+                                    id={"info-tooltip"+index}
+                                    />
                                 </div>
                                 :
                                 <div className=" max-w-[247px] rounded-[18px] rounded-tl-[0px] p-5 pt-4 text-xs leading-5 text-[#1A202C]">
                                     {item.text}
                                 </div>                        
                                 }
+                                
                                 </>
                             )
                         })}
+                        {
+                            chats.length == 1 ?
+                                <div className="bg-[#6432C933] max-w-[247px] rounded-[18px] rounded-tl-[0px] p-2 pt-4 text-xs leading-5 text-[#1A202C]">
+                                    <BeatLoader size={10} color="#6432C9" />
+                                </div>                            
+                            :
+                            undefined
+                        }
                     </div>
                 :
-                undefined
+                 undefined
             }
             <div onClick={() => {
               if(!showAdditinal){
@@ -295,7 +331,7 @@ const AdditinalBox:React.FC<AdditinalBoxProps> = ({setAditinalData,getRefrences,
                 setShowAdditinal(false)
               }
               }} className="w-16 h-16 flex justify-center cursor-pointer items-center bg-primary-color rounded-full">
-                <img src="./icons/Add.svg" alt="" />
+                <img src={!showAdditinal? './icons/Add.svg':'./icons/arrow-down.svg'} alt="" />
             </div>
         </>
     )
