@@ -18,10 +18,12 @@ const MedicalCopilot = () => {
     const [additinalDataResolves, setAdditinalDataResolved] = useState<
         Array<any>
     >([]);
+    const [chatLoading,setchatLoading] = useState(false)
     const apikey = 'df1d60cca09d4ddda756c6aae1423567'      
     const [chats,setChats] = useState<Array<ChatType>>([])
     const [text,setText] = useState('')
     const sendToApi = () => {
+        setchatLoading(true)
         const resolvedData: any = {
             apikey: apikey,
             getcurrentconvesationid: 1,
@@ -58,6 +60,7 @@ const MedicalCopilot = () => {
                     additinalData:additinalDataResolves
                 }
             ])
+            setchatLoading(false)
             setAdditinalDataResolved([])
         })    
 
@@ -95,7 +98,7 @@ const MedicalCopilot = () => {
                 
             </SigmaContainer>
             <div className="absolute bottom-14 left-6">
-                <AdditinalBox getRefrences={getRefrencess} chats={chats} sendToApi={sendToApi} additinalDataResolves={additinalDataResolves} setAdditinalDataResolved={setAdditinalDataResolved} additinalData={additinalData} setAditinalData={setAditinalData}></AdditinalBox>
+                <AdditinalBox isLoading={chatLoading} getRefrences={getRefrencess} chats={chats} sendToApi={sendToApi} additinalDataResolves={additinalDataResolves} setAdditinalDataResolved={setAdditinalDataResolved} additinalData={additinalData} setAditinalData={setAditinalData}></AdditinalBox>
             </div>
 
             <div className="absolute top-12 right-6">

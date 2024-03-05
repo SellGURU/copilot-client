@@ -2,16 +2,10 @@ import React from "react";
 import { useState } from 'react';
 import './SideMenu.css';
 import { useNavigate } from 'react-router-dom';
-
-interface SideMenuItem  {
-    title:string
-    src:string
-    path:string
-}
+import { SideMenuItem } from "../../types";
+import { resolveMenuFromRoutes } from "../../help";
 
 const SideMenu:React.FC = () => {
-    const [clickedItem, setClickedItem] = useState<SideMenuItem>();
-    const navigate = useNavigate()
     const sideMenuItems:Array<SideMenuItem>=[ 
         {title:"Overview" , src:"./icons/Overview.svg" , path:'/overview'},
         {title:"Risks" , src:"./icons/Risks.svg " , path:'/risks'},
@@ -20,6 +14,8 @@ const SideMenu:React.FC = () => {
         {title:"Medical Copilot" , src:"./icons/MedicalCopilot.svg " , path:'/MedicalCopilot' },
         {title:"About" , src:"./icons/About.svg " , path:'/' },
     ];
+    const [clickedItem, setClickedItem] = useState<SideMenuItem>(resolveMenuFromRoutes(sideMenuItems));
+    const navigate = useNavigate()
     const handleClick = (item:SideMenuItem) => {
         setClickedItem(item);
         navigate(item.path)
