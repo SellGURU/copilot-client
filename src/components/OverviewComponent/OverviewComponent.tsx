@@ -1,6 +1,11 @@
+import React from "react"
 import Navbar from "../Navbar/Navbar"
 import "./OverviewComponent.css"
-const OverviewComponent = () => {
+
+interface OverviewComponentProps {
+    theme?:string;
+}
+const OverviewComponent:React.FC<OverviewComponentProps> = ({}) => {
     return (
         <>
         <div className="Overview-Container">

@@ -13,6 +13,7 @@ export default {
 
 				"secondary-color":  "#E8E1DA",
 
+        "darkText-color":  "#253343",
 				"soft-color":  "#86929E",
 
 				"red-color":  "#FF3E5D",

@@ -1,5 +1,5 @@
 .Risks-Container{
-    @apply w-full h-screen;
+    @apply w-full h-screen text-darkText-color;
 }
 .Risks-Section{
     @apply w-full flex flex-row  items-start mt-[206px];
@@ -58,7 +58,6 @@
 }
 .Risks-Section-Right-Items-Title {
     font-size:10px;
-    color : #253343 ;
 }
 .Risks-Section-Right-Circle {
     @apply w-[67px] h-[67px] rounded-full flex flex-col items-center justify-center gap-2 ;

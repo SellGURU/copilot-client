@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from 'react';
 import './SideMenu.css';
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +9,7 @@ interface SideMenuItem  {
     path:string
 }
 
-const SideMenu = () => {
+const SideMenu:React.FC = () => {
     const [clickedItem, setClickedItem] = useState<SideMenuItem>();
     const navigate = useNavigate()
     const sideMenuItems:Array<SideMenuItem>=[ 

@@ -1,6 +1,11 @@
+import React from "react";
 import "./Navbar.css";
 
-const Navbar = () => {
+interface NavbarProps {
+    theme ?:string;
+}
+
+const Navbar:React.FC<NavbarProps> = ({}) => {
 
     return (      
         <>

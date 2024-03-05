@@ -1,5 +1,5 @@
 .Navbar-Container{
-    @apply h-[126px] min-h-[126px] fixed top-0 mt-10 mx-6 w-3/4;
+    @apply h-[126px] min-h-[126px] fixed top-0 mt-10 mx-6 w-3/4 text-darkText-color;
 }
 .Navbar-Section{
     @apply w-full flex flex-col justify-center items-center ;
