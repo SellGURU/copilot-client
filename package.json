@@ -31,8 +31,10 @@
     "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.1",
+    "react-spinners": "^0.13.8",
     "react-toastify": "^10.0.4",
     "recharts": "^2.12.2",
+    "react-tooltip": "^5.26.3",
     "seedrandom": "^3.0.5",
     "sigma": "^3.0.0-beta.6",
     "tailwind-merge": "^2.2.1"

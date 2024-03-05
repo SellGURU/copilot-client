@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 type ChatType =  {
   from: "Ai" | "user";
   text: string;
@@ -5,12 +6,16 @@ type ChatType =  {
   currentconverationid: string;
   instanceid: string;
   audio_file: string;
+  additinalData:Array<any>
 }
 
 type NodesType = {
     id: string,
     label: string,
     size: number
+    category1:string
+    category2:string
+    color:string
 }
 
 type EdgeType = {

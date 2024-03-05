@@ -41,3 +41,21 @@
 .read-the-docs {
   color: #888;
 } */
+.chatBoxScroolBar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.chatBoxScroolBar::-webkit-scrollbar-track {
+    background: white;
+    height: 20px;
+    border-radius: 5px;
+}
+
+.chatBoxScroolBar::-webkit-scrollbar-thumb {
+    background: #DAD8E6;
+    border-radius: 5px;
+}
+
+.chatBoxScroolBar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

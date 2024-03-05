@@ -12,8 +12,8 @@ class TestPage extends Api{
             submit(res)
         })
     } 
-    additinalData(data:getApikey,submit:(res:any) => void) {
-        this.post('/get_additional_data_for_test',data).then(res => {
+    additinalData(submit:(res:any) => void) {
+        this.post('/get_additional_data',{}).then(res => {
             submit(res)
         })
     }    
@@ -21,7 +21,7 @@ class TestPage extends Api{
         this.post('/show_selected_session_message',data).then(res => submit(res))
     }     
     relatedNodes(data:any,submit:(res:any) => void) {
-        this.post('/get_related_nodes_for_test',data).then(res => {
+        this.post('/get_related_nodes',data).then(res => {
             submit(res)
         })
     }

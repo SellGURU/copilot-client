@@ -5,14 +5,13 @@ import { Attributes } from "graphology-types";
 import { useSigma, useRegisterEvents, useLoadGraph, useSetSettings } from "@react-sigma/core";
 import { useGraphPosition } from "../../hooks";
 import { useConstructor } from "../../help";
-import chroma from "chroma-js";
 import Nodes from "../../api/Nodes";
 import { GetEdgeAndNodesType } from "../../types";
 import { useLayoutCircular } from "@react-sigma/layout-circular";
 export interface GraphDefaultProps {
-
+  exeNods:Array<string>
 }
-export const GraphDefault: React.FC<GraphDefaultProps> = () => {
+export const GraphDefault: React.FC<GraphDefaultProps> = ({exeNods}) => {
   const sigma = useSigma();
   const registerEvents = useRegisterEvents();
   const loadGraph = useLoadGraph();
@@ -58,11 +57,11 @@ export const GraphDefault: React.FC<GraphDefaultProps> = () => {
     const nodesApi = new Nodes()
     nodesApi.getAllNodesAndEdges((resolve:GetEdgeAndNodesType) => {
         resolve.nodes.map((node) => {
-          graph.addNode(node.id, { x: positions.xCircular, y: positions.yCircular, size: node.size , label: node.label, color:chroma.random().hex()});
+          graph.addNode(node.id, { x: positions.xCircular, y: positions.yCircular,category1:node.category1,category2:node.category2, size: node.size , label: node.label, color:node.color});
         })
         resolve.edges.map((edges) => {
           if(graph.hasNode(edges.source) && graph.hasNode(edges.target)){
-            graph.addEdge(edges.source, edges.target);
+            graph.addEdge(edges.source, edges.target,{weight: edges.weight});
           }else {
             if(!graph.hasNode(edges.source)){
               console.warn(edges.source + 'is exist  ' + graph.hasNode(edges.source))
@@ -145,8 +144,29 @@ export const GraphDefault: React.FC<GraphDefaultProps> = () => {
   }, [draggedNode, loadGraph, registerEvents, sigma]);
 
   useEffect(() => {
-  
-    //  return layout.stop()      
+    const graphdata = sigma.getGraph();
+    // graphdata.forEachNode((node: any) => {
+    //   if(exeNods.includes(node)){
+    //     graphdata.forEachInNeighbor(node,(neighbor) => {
+    //       graphdata.setNodeAttribute(neighbor, "hidden", true)
+    //       graphdata.forEachInNeighbor(neighbor,(layer3) => {
+    //         graphdata.setNodeAttribute(layer3, "hidden", true)
+    //       })
+    //     })
+
+    //   }else {
+    //     graphdata.forEachInNeighbor(node,(neighbor) => {
+    //       graphdata.setNodeAttribute(neighbor, "hidden", false)
+    //       graphdata.forEachInNeighbor(neighbor,(layer3) => {
+    //         graphdata.setNodeAttribute(layer3, "hidden", false)
+    //       })
+    //     })        
+    //   }
+    //   graphdata.setNodeAttribute(node, "hidden", exeNods.includes(node)?true:false)
+    // });   
+    graphdata.forEachNode((node,{ category1, category2 }) => {
+      graphdata.setNodeAttribute(node, "hidden", exeNods.includes(node) ||exeNods.includes(category1) || exeNods.includes(category2))
+    })
   })
   useEffect(() => {
     setSettings({

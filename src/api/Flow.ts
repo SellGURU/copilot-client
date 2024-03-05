@@ -5,10 +5,10 @@ import Api from "./Api";
 class FlowTest extends Api {
     constructor(){
         super();
-        this.base = 'mobile'
+        this.base = 'copilot'
     }
     flow(data:any,submit:(res:any) => void) {
-        this.post('/flow_for_test',data).then(res => {
+        this.post('/flow',data).then(res => {
             submit(res)
         })
     }    

@@ -10,7 +10,7 @@ function App() {
   // useMoch()
   return (
     <>
-    <div className="flex font-poppins justify-between items-center" style={{width:'100%',height:'100vh' ,background:'white'}}>
+    <div className="flex font-poppins bg-[#F8F9FE] justify-between items-center" style={{width:'100%',height:'100vh' ,background:'white'}}>
         <RouterProvider router={router} />
         <ToastContainer />
     </div>
