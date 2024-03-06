@@ -2,11 +2,22 @@
     @apply w-full h-screen text-darkText-color;
 }
 .Interventions-Section{
-    @apply w-full flex flex-row items-start mt-[190px];
+    @apply w-full flex flex-row items-start mt-[190px] gap-3;
+}
+.Interventions-Section-Right{
+    @apply -mt-8 w-full ;
 }
 .Interventions-Section-Left {
-    @apply  flex  items-center justify-center pt-9 ml-6 ;
+    @apply  flex w-full items-center justify-center pt-9 ml-6 ;
 }
 .Interventions-Section-Left-Card {
-    @apply w-[558px] rounded-[18px] bg-white px-[22px] py-6 text-darkText-color flex flex-col gap-4 ;
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 680px; /* Set a fixed height for the scrollable area */
+    @apply w-[558px] rounded-[18px] bg-white px-[22px] py-6 text-darkText-color flex flex-col gap-4 pb-[100px] ;
 }
+
+/* Additional styles for smooth scrolling */
+.Interventions-Section-Left-Card::-webkit-scrollbar {
+    display:none;
+}
+

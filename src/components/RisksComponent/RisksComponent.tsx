@@ -15,10 +15,13 @@ const RisksComponent:React.FC<RisksComponentProps> = ({}) => {
         <div className="Risks-Container">
             <Navbar/>
             <div className="Risks-Section">
-                <div className="Risks-Section-Left">
-                    <RisksCards cardTitle="Diabetes" pieChartTitle="Risk Level" lineChartTitle="Glucose Trends" lineChartSubTitle="(mg/dl)" percentage={75}></RisksCards>
-                    <RisksCards cardTitle="Heart Disease" pieChartTitle="Risk Level" lineChartTitle="Total Cardiovascular" percentage={65}></RisksCards>
-                    <RisksCards cardTitle="blood pressure" pieChartTitle="Risk Level" lineChartTitle="Total Blood Pressure" percentage={91}></RisksCards>
+                <div className="Risks-Section-LeftSection">
+                    <div className="Risks-Section-Left">
+                        <RisksCards cardTitle="Diabetes" pieChartTitle="Risk Level" lineChartTitle="Glucose Trends" lineChartSubTitle="(mg/dl)" percentage={75}></RisksCards>
+                        <RisksCards cardTitle="Heart Disease" pieChartTitle="Risk Level" lineChartTitle="Total Cardiovascular" percentage={65}></RisksCards>
+                        <RisksCards cardTitle="blood pressure" pieChartTitle="Risk Level" lineChartTitle="Total Blood Pressure" percentage={91}></RisksCards>
+                    </div>
+
                 </div>
                 <div className="Risks-Section-Right">
                     <div className="Risks-Section-Right-Info">

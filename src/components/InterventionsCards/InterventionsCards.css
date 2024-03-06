@@ -1,13 +1,19 @@
 .InterventionsCards-Container{
-    border: 1px solid ;
-    background: linear-gradient(266.2deg, rgba(100, 50, 201, 0.75) 16.06%, rgba(100, 50, 201, 0.15) 91.39%) border;
-
-
-    @apply w-[514px] h-[135px] rounded-[16px] px-8 py-4 text-darkText-color ;
+    border: 1px solid transparent;
+    background: linear-gradient(0deg, rgba(255, 255, 255), rgba(255, 255, 255)) padding-box, 
+        linear-gradient(86.2deg, rgba(100, 50, 201, 0.75) 16.06% , rgba(100, 50, 201, 0.15) 91.39%) border-box;
+    @apply w-[514px] h-[135px] rounded-[16px] px-7 py-4 text-darkText-color ;
 }
 .InterventionsCards-Container-CardTitle {
     @apply font-semibold mb-1 ;
 }
 .InterventionsCards-Container-CardDescription {
     @apply text-sm mb-[14px]	;
+}
+.InterventionsCards-Container-CardTagsSection {
+    @apply flex flex-row gap-2 ;
+}
+.InterventionsCards-Container-CardTags {
+    box-shadow: -9px 11px 13px 0px rgba(0, 0, 0, 0.25);
+    @apply text-sm px-3 py-[6px] bg-green-color rounded-xl flex items-center justify-center text-darkgreen-color gap-1;
 }

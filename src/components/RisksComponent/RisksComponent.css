@@ -4,8 +4,17 @@
 .Risks-Section{
     @apply w-full flex flex-row  items-start mt-[206px];
 }
+.Risks-Section-LeftSection {
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 750px; /* Set a fixed height for the scrollable area */
+    width:100%
+}
 .Risks-Section-Left {
-    @apply ml-6 flex flex-col items-center justify-center gap-8;
+    @apply ml-6 flex flex-col items-center justify-center gap-8 mb-[150px];
+}
+/* Additional styles for smooth scrolling */
+.Risks-Section-LeftSection::-webkit-scrollbar {
+    display:none;
 }
 .Risks-Section-Left-SubCircle {
     @apply w-[116px] h-[116px] rounded-full flex flex-col items-center justify-center gap-2 ;

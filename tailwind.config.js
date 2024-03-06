@@ -20,6 +20,9 @@ export default {
 				"orange-color":  "#FC8F2B",
 				"purple-color":  "#873FEF",
 				"blue-color":  "#62CFD8",
+        "green-color": "#DFFDDD",
+        "darkgreen-color": "#008000",
+
 
 			},
       fontFamily: {

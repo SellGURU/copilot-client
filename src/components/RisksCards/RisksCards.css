@@ -1,5 +1,5 @@
 .RisksCards-Container{
-    @apply w-[627px] rounded-[18px] bg-white px-8 py-4 text-darkText-color ;
+    @apply rounded-[18px] bg-white px-8 py-4 text-darkText-color ;
 }
 .RisksCards-Container-CardTitle {
     @apply font-semibold mb-4 ;
