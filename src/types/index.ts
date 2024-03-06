@@ -29,4 +29,10 @@ type GetEdgeAndNodesType = {
   edges:Array<EdgeType>
 }
 
-export type {ChatType,NodesType,EdgeType,GetEdgeAndNodesType}
+interface SideMenuItem  {
+    title:string
+    src:string
+    path:string
+}
+
+export type {ChatType,NodesType,EdgeType,GetEdgeAndNodesType,SideMenuItem}

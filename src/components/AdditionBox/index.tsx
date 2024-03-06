@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import TestPage from "../../api/TestPage"
 import FormLabel from "../Base/FormLabel"
 import { ChatType } from "../../types"
@@ -8,6 +8,7 @@ import {BeatLoader} from "react-spinners";
 interface AdditinalBoxProps {
    setAditinalData:(additinalData:any) =>void
    additinalData:any
+   isLoading:boolean
    chats:Array<ChatType>
    additinalDataResolves:Array<any>,
    setAdditinalDataResolved:(data:Array<any>) => void   
@@ -15,7 +16,7 @@ interface AdditinalBoxProps {
    getRefrences: (chat:ChatType) => void
 }
 
-const AdditinalBox:React.FC<AdditinalBoxProps> = ({setAditinalData,getRefrences,sendToApi,chats,additinalData,additinalDataResolves,setAdditinalDataResolved}) => {
+const AdditinalBox:React.FC<AdditinalBoxProps> = ({setAditinalData,isLoading,getRefrences,sendToApi,chats,additinalData,additinalDataResolves,setAdditinalDataResolved}) => {
     const [showAdditinal,setShowAdditinal] = useState(false)
     const testPageApi = new TestPage()
     const getAdditionalData = () => {
@@ -59,6 +60,13 @@ const AdditinalBox:React.FC<AdditinalBoxProps> = ({setAditinalData,getRefrences,
         setAdditinalDataResolved(resolved);
         // resolveAdditinalJsonForApi();
     };        
+    useEffect(() => {
+        const chatbox = document.getElementById('chat'+ (chats.length -1))
+        if(chatbox){
+            chatbox.scrollIntoView({behavior:'smooth',block:'start',inline:'start'})
+            // chatbox.scrollTop = chatbox.scrollHeight;
+        }
+    },[chats])
     return (
         <>
             {
@@ -251,75 +259,78 @@ const AdditinalBox:React.FC<AdditinalBoxProps> = ({setAditinalData,getRefrences,
             }
             {
                 !showAdditinal && chats.length > 0 ?
-                    <div  className="bg-white w-[313px] px-5 chatBoxScroolBar  overflow-y-scroll pb-5 h-[355px] shadow-lg mb-2 border border-[#F0F0F0] rounded-[18px]">
-                        {chats.map((item:ChatType,index:number) => {
-                            console.log(item)
-                            return (
-                                <>
-                                {item.from == 'Ai' ?
-                                <div className='flex w-full '>
-                                    <div className="bg-[#6432C933] max-w-[247px] rounded-[18px] rounded-tl-[0px] p-5 pt-4 text-xs leading-5 text-[#1A202C]">
+                    <div  className="bg-white w-[313px] px-3  pb-5 h-[355px] shadow-lg mb-2 pt-2 border border-[#F0F0F0] rounded-[18px]">
+                        <div id="chatbox-sassions" className="chatBoxScroolBar h-full px-2 overflow-x-hidden overflow-y-scroll">
+                            {chats.map((item:ChatType,index:number) => {
+                                console.log(item)
+                                return (
+                                    <>
+                                    {item.from == 'Ai' ?
+                                    <div id={"chat"+index} className='flex w-full '>
+                                        <div className="bg-[#6432C933] max-w-[247px] rounded-[18px] rounded-tl-[0px] p-5 pt-4 text-xs leading-5 text-[#1A202C]">
+                                            {item.text}
+                                        </div>
+                                        <div className="w-7">
+                                            <div data-tooltip-id={"info-tooltip"+index} className='ml-2 w-6 h-6'>
+                                                <img onClick={() => {
+                                                    // getRefrences(item)
+                                                }
+                                                    } className='cursor-pointer max-w-5 ' src="./icons/info-circle.svg" alt="" />
+                                            </div>                                        
+                                            <div className='ml-2 mt-2 w-6 h-6'>
+                                                <img onClick={() => {
+                                                    getRefrences(item)
+                                                }
+                                                    } className='cursor-pointer max-w-5  ' src="./icons/export.svg" alt="" />
+                                            </div>
+
+
+                                        </div>
+                                        <Tooltip
+                                        opacity={"98%"}
+                                        style={{
+                                            zIndex: 50,
+                                            backgroundColor: "white",
+                                            color: "#3C3744",
+                                            boxShadow: "0px 0px 6px 1px rgba(0, 0, 0, 0.2)",
+                                        }}
+                                        render={() => (
+                                            <div>
+                                            {item.additinalData.map((item) => {
+                                                return (
+                                                <>
+                                                    <div className="text-[#3C3744] mt-2 flex text-[12px]">
+                                                    <div className="opacity-80">{item.key}</div>{" "}
+                                                    <span>:{item.value}</span>
+                                                    </div>
+                                                </>
+                                                );
+                                            })}
+                                            </div>
+                                        )}
+                                        place="right-end"
+                                        id={"info-tooltip"+index}
+                                        />
+                                    </div>
+                                    :
+                                    <div className=" max-w-[247px] rounded-[18px] rounded-tl-[0px] p-5 pt-4 text-xs leading-5 text-[#1A202C]">
                                         {item.text}
-                                    </div>
-                                    <div className="w-7">
-                                        <div data-tooltip-id={"info-tooltip"+index} className='ml-2 w-6 h-6'>
-                                            <img onClick={() => {
-                                                // getRefrences(item)
-                                            }
-                                                } className='cursor-pointer max-w-5 ' src="./icons/info-circle.svg" alt="" />
-                                        </div>                                        
-                                        <div className='ml-2 mt-2 w-6 h-6'>
-                                            <img onClick={() => {
-                                                getRefrences(item)
-                                            }
-                                                } className='cursor-pointer max-w-5  ' src="./icons/export.svg" alt="" />
-                                        </div>
-
-
-                                    </div>
-                                    <Tooltip
-                                    opacity={"98%"}
-                                    style={{
-                                        zIndex: 50,
-                                        backgroundColor: "white",
-                                        color: "#3C3744",
-                                        boxShadow: "0px 0px 6px 1px rgba(0, 0, 0, 0.2)",
-                                    }}
-                                    render={() => (
-                                        <div>
-                                        {item.additinalData.map((item) => {
-                                            return (
-                                            <>
-                                                <div className="text-[#3C3744] mt-2 flex text-[12px]">
-                                                <div className="opacity-80">{item.key}</div>{" "}
-                                                <span>:{item.value}</span>
-                                                </div>
-                                            </>
-                                            );
-                                        })}
-                                        </div>
-                                    )}
-                                    place="right-end"
-                                    id={"info-tooltip"+index}
-                                    />
-                                </div>
+                                    </div>                        
+                                    }
+                                    
+                                    </>
+                                )
+                            })}
+                            {
+                                isLoading ?
+                                    <div className="bg-[#6432C933] max-w-[247px] rounded-[18px] rounded-tl-[0px] p-2 pt-4 text-xs leading-5 text-[#1A202C]">
+                                        <BeatLoader size={10} color="#6432C9" />
+                                    </div>                            
                                 :
-                                <div className=" max-w-[247px] rounded-[18px] rounded-tl-[0px] p-5 pt-4 text-xs leading-5 text-[#1A202C]">
-                                    {item.text}
-                                </div>                        
-                                }
-                                
-                                </>
-                            )
-                        })}
-                        {
-                            chats.length == 1 ?
-                                <div className="bg-[#6432C933] max-w-[247px] rounded-[18px] rounded-tl-[0px] p-2 pt-4 text-xs leading-5 text-[#1A202C]">
-                                    <BeatLoader size={10} color="#6432C9" />
-                                </div>                            
-                            :
-                            undefined
-                        }
+                                undefined
+                            }
+
+                        </div>
                     </div>
                 :
                  undefined
