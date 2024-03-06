@@ -1,6 +1,7 @@
 import { createHashRouter } from "react-router-dom";
-import { Overview, Panel,Risks } from "../pages";
+import { Interventions, Overview, Panel,Risks } from "../pages";
 import MedicalCopilot from "../pages/MedicalCopilot";
+import MiaVital from "../pages/MiaVital";
 
 const router = createHashRouter([
     {
@@ -18,7 +19,15 @@ const router = createHashRouter([
             {
                 path:'Risks',
                 element:<Risks></Risks>
-            }         
+            },
+            {
+                path:'Interventions',
+                element:<Interventions></Interventions>
+            },
+            {
+                path:'MiaVital',
+                element:<MiaVital></MiaVital>
+            }
         ]
     }
 ])

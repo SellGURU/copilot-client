@@ -1,0 +1,12 @@
+.Interventions-Container{
+    @apply w-full h-screen text-darkText-color;
+}
+.Interventions-Section{
+    @apply w-full flex flex-row items-start mt-[190px];
+}
+.Interventions-Section-Left {
+    @apply  flex  items-center justify-center pt-9 ml-6 ;
+}
+.Interventions-Section-Left-Card {
+    @apply w-[558px] rounded-[18px] bg-white px-[22px] py-6 text-darkText-color flex flex-col gap-4 ;
+}

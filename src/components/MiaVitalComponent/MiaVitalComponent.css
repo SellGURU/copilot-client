@@ -1,0 +1,6 @@
+.MiaVital-Container{
+    @apply w-full h-screen text-darkText-color;
+}
+.MiaVital-Section{
+    @apply w-full flex flex-col justify-center items-start mt-[233px] ;
+}

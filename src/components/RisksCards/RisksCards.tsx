@@ -14,7 +14,7 @@ interface RisksCardsProps  {
 const RisksCards:React.FC<RisksCardsProps> = ({cardTitle, pieChartTitle ,lineChartTitle,lineChartSubTitle,percentage}) => {
     return (
         <>
-        <div className="RisksCards-Container">
+        <div className="RisksCards-Container shadow-card">
             <p className="RisksCards-Container-CardTitle">{cardTitle}</p>
             <div className="RisksCards-Container-ChartsSection">
                 <div className="RisksCards-Container-ChartsSection-Chart">
