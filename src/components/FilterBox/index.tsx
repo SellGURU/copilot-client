@@ -8,12 +8,13 @@ interface FilterBox {
 }
 
 const FilterBox:React.FC<FilterBox> = ({exeNods,setexeNods}) => {
-    const [categories,setCategories] = useState([])
+    const [categories,setCategories] = useState<Array<string>>([])
     const [checkAll,setCheckAll] = useState(true)
     useConstructor(() => {
         const nodeApi = new Nodes()
         nodeApi.getCatagories((res) => {
-            setCategories(res)
+            // console.log(Object.entries(res).map(item => item[0]))
+            setCategories(Object.entries(res).map(item => item[0]))
         })
     })
     return (
