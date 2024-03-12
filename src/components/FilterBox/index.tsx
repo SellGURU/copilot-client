@@ -30,11 +30,13 @@ const FilterBox:React.FC<FilterBox> = ({exeNods,setexeNods}) => {
                         <input type="checkbox" value={'all'} checked={checkAll} onChange={() => {
                             setCheckAll(!checkAll)
                             if(checkAll){
-                                const allData=categories
+                                const allData:Array<string> =[...categories]
                                 categories.forEach((el) => {
                                     const child:Array<string> = AllCategories[el]
                                     child?.forEach((el2) => {
-                                        allData.push(el2)
+                                        if(!exeNods.includes(el2)){
+                                            allData.push(el2)
+                                        }
                                     })
                                 })
                                 setexeNods(allData)
