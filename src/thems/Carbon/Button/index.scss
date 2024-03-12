@@ -1,0 +1,13 @@
+.Carbon-Button-container {
+  @apply flex justify-center boxShadow-purple boxShadow-Gray  items-center tracking-tighter text-white w-full disabled:cursor-not-allowed bg-primary-color leading-[19.36px] text-[14px] font-[500]  rounded-[27px] h-[44px] #{!important};
+}
+
+.Carbon-Button-container-disabled {
+  @apply opacity-[50%] #{!important};
+}
+.Carbon-Button-container[data-mode="presentation-answer-button"] {
+  @apply px-6 py-[14px] h-auto text-left #{!important};
+}
+.Carbon-Button-container[data-mode="ChatDetails-question-button"] {
+  @apply rounded-xl w-fit py-[9px] px-[14px] h-10 #{!important};
+}

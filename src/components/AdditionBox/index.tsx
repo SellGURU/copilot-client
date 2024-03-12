@@ -5,6 +5,7 @@ import FormLabel from "../Base/FormLabel"
 import { ChatType } from "../../types"
 import { Tooltip } from 'react-tooltip'
 import {BeatLoader} from "react-spinners";
+import ImageUploadr from "../UploadImage"
 interface AdditinalBoxProps {
    setAditinalData:(additinalData:any) =>void
    additinalData:any
@@ -29,6 +30,7 @@ const AdditinalBox:React.FC<AdditinalBoxProps> = ({setAditinalData,isLoading,get
             }
         );        
     }  
+    const [files,setFiles] = useState<any>([])
     const resolveSassionName = () => {
         const date = new Date();
         const yers = date.getFullYear();
@@ -244,7 +246,13 @@ const AdditinalBox:React.FC<AdditinalBoxProps> = ({setAditinalData,isLoading,get
                                     ) : undefined}
                                     </>
                                 );
-                              })}                                   
+                              })}    
+                                <div className="px-[16px]">                               
+                                    <ImageUploadr value={files} uploades={(val) =>{
+                                        setFiles(val)
+                                    }} mod="files" label="Upload File" ></ImageUploadr>   
+
+                                </div>
                               </div>
 
                               <button onClick={() => {

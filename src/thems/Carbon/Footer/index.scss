@@ -1,0 +1,35 @@
+.Carbon-Footer-Container {
+  @apply h-16 sticky rounded-xl w-full boxShadow-Gray borderBox-Gray z-20  bottom-0 py-3 px-7  flex items-center justify-between;
+}
+.Carbon-Footer-VectorSection {
+  @apply w-10 h-10 p-2 rounded-full cursor-pointer;
+}
+.Carbon-Footer-Vectors{
+  mask-size: 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  @apply w-6 h-6 bg-slate-400; 
+}
+.Carbon-Footer-UserVector {
+  mask-image: url(/Carbon/userVector.svg);
+}
+.Carbon-Footer-BookVector {
+  mask-image: url(/Carbon/bookVector.svg);
+}
+.Carbon-Footer-StatusVector {
+  mask-image: url(/Carbon/statusupVector.svg);
+}
+.Carbon-Footer-SettingVector {
+  mask-image: url(/Carbon/settingVector.svg);
+}
+.Carbon-Footer-ChatVector{
+  mask-image: url(/Carbon/chatVector.svg);
+}
+.Carbon-Footer-ActiveVectorSection {
+  @apply flex justify-center items-center borderBox-Gray;
+}
+.Carbon-Footer-ActiveVectors{
+  @apply bg-violet-700;
+}
+

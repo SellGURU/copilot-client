@@ -2,6 +2,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 import FormLabel from '../Base/FormLabel';
+import ImageUploadr from '../UploadImage';
 
 interface AddAditinalDataProps {
     isOpen:boolean
@@ -255,7 +256,9 @@ const AddAditinalData:React.FC<AddAditinalDataProps> = ({
                                 ) : undefined}
                                 </>
                             );
-                            })}                                
+                            })} 
+
+                            <ImageUploadr ></ImageUploadr>                                                           
                         </div>
 
                         <div className="mt-4">

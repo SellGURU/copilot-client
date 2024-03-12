@@ -1,0 +1,47 @@
+.Carbon-FooterPresentation-Container {
+  @apply h-16 absolute w-full rounded-xl border-b-0 bottom-0 borderBox-Gray boxShadow-Gray bg-slate-100 py-3 px-4 gap-3 flex items-center justify-start;
+}
+.Carbon-FooterPresentation-BackgroundItems {
+  border-radius: 27px;
+  @apply bg-gray-100 borderBox-Gray btnInnerShadowsDark flex justify-center items-center w-full h-full;
+}
+
+.Carbon-FooterPresentation-Vectors{
+  mask-size: 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  @apply w-6 h-6 bg-violet-700;
+}
+.Carbon-FooterPresentation-MicVector {
+  mask-image: url(/Carbon/microphone.svg);
+}
+.Carbon-FooterPresentation-SendVector {
+  mask-image: url(/Carbon/send.svg);
+  @apply cursor-pointer;
+}
+.Carbon-FooterPresentation-KeyboardVector {
+  mask-image: url(/Carbon/keyboard.svg);
+}
+.Carbon-FooterPresentation-VectorSection {
+  @apply w-10 h-10 p-2 rounded-full cursor-pointer;
+}
+.Carbon-FooterPresentation-VectorSectionSelected {
+  margin: 0 auto;
+  @apply w-14 h-14 p-2 rounded-full cursor-pointer ;
+}
+.Carbon-FooterPresentation-SectionSelected {
+  @apply w-full -ml-[52px] ;
+}
+.Carbon-FooterPresentation-Input {
+  background: none;
+  @apply w-full p-1 ;
+}
+input:focus {
+  outline: none;
+  border: none;
+}
+.Carbon-FooterPresentation-BackgroundInput{
+  border-radius: 27px;
+  @apply bg-gray-100 borderBox-Gray boxShadow-Gray flex justify-center items-center w-full h-full;
+}

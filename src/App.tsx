@@ -5,7 +5,7 @@ import router from "./router";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 // import { useMoch } from "./api/--MOCH--";
-
+import './thems/index.scss'
 function App() {
   // useMoch()
   return (

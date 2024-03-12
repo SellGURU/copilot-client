@@ -2,6 +2,7 @@
 import { Dialog, Transition } from "@headlessui/react"
 import { Fragment } from "react"
 import FormLabel from "../Base/FormLabel"
+import ReactTextFormat from 'react-text-format';
 
 type RefrencessDataProps = {
     isOpen : boolean
@@ -80,8 +81,10 @@ const RefrencessData:React.FC<RefrencessDataProps> = ({isOpen,onClose,relatedNod
                                         id="modal-form-6"
                                         placeholder="Chunck 1"
                                     /> */}
-                                    <div className="border rounded-lg text-sm p-2">
-                                        {item[Object.keys(item)[0]].content}
+                                    <div className="border font-poppins rounded-lg text-left bg-gray-50 px-2 text-sm p-2" style={{whiteSpace:'pre-wrap',lineHeight:'24px'}}>
+                                        <ReactTextFormat>
+                                            {item[Object.keys(item)[0]].content}
+                                        </ReactTextFormat>
                                     </div>
                                     </div>
                                 </div>

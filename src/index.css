@@ -33,7 +33,32 @@
     box-shadow: -22px 26px 12px 0px rgba(0, 0, 0, 0.25);
     border: 1px solid rgba(240, 240, 240, 1);
   }
-
-
+  .borderBox-Gray {
+    border: 1px solid transparent;
+    background: linear-gradient(0deg, rgba(243, 244, 246), rgba(243, 244, 246)) padding-box, linear-gradient(293deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)) border-box,
+      linear-gradient(300deg, rgba(243, 244, 246, 0.5), rgba(255, 255, 255, 0.5)) border-box;
+  }
+  .boxShadow-Gray {
+    box-shadow: 4px 4px 20px 0px rgba(111, 140, 176, 0.41), -6px -6px 20px 0px rgba(255, 255, 255, 1), 2px 2px 4px 0px rgba(114, 142, 171, 0.1);
+  }  
+  .borderBox-primary {
+    border: 1px solid transparent;
+    background: linear-gradient(0deg, rgba(255, 255, 255), rgba(255, 255, 255)) padding-box, linear-gradient(293deg, rgba(214, 227, 243, 0.46), rgba(255, 255, 255, 0.46)) border-box,
+      linear-gradient(300deg, rgba(100, 50, 201, 1) 60%, rgba(100, 50, 201, 0.4)) border-box;
+  }  
+  .boxShadow-purple {
+    background: linear-gradient(35deg, rgba(232, 225, 218, 1) -100%, #6432c9 50%, rgba(100, 50, 201, 1) 100%);
+  }  
+  .btnInnerShadowsDark {
+    box-shadow: 4px 4px 14px 0px rgba(193, 213, 238, 1) inset, -4px -4px 9px 0px rgba(255, 255, 255, 0.88) inset !important;
+  }
+  .inputBorderBox {
+    border: 1px solid transparent ;
+    background: linear-gradient(rgba(243, 244, 246, 1), rgba(243, 244, 246, 1)) padding-box,
+      linear-gradient(to bottom, rgba(246, 246, 249, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%) border-box linear-gradient(36deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 140%) border-box;
+  }
+  .boxsInnerShadows {
+    box-shadow: inset -4px -4px 9px 2px rgba(255, 255, 255, 0.6), inset 4px 4px 14px 2px rgba(226, 232, 240, 1) !important;
+  }
 }
 

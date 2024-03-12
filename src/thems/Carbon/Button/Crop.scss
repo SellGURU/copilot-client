@@ -1,0 +1,7 @@
+.Carbon-Crop-Button-container {
+  @apply flex justify-center font-semibold boxShadow-purple items-center text-white w-full disabled:cursor-not-allowed bg-primary-color leading-[19.36px] text-[14px] rounded-[27px] h-[44px] #{!important};
+}
+
+.Carbon-Crop-Button-container-disabled {
+  @apply opacity-[50%] #{!important};
+}
