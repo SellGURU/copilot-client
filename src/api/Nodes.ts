@@ -26,7 +26,7 @@ class Nodes extends Api {
         this.post('/paragraph_keyword',{
             category:key
         }).then(res => {
-            console.log(res)
+
             publish('changeKeywords',{})
             resolve(res.data)
         })

@@ -84,16 +84,18 @@ export const GraphDefault: React.FC<GraphDefaultProps> = ({exeNods,catkeyword}) 
   })
   useEffect(() => {
     registerEvents({
+      doubleClickNode:(e) => {
+          nodeApi.getgraphKeyWord(e.node,(res) => {
+            // setcatKey(res)
+            catkeyword.current = res
+          })  
+      },
       enterNode: (event) => setHoveredNode(event.node),
       leaveNode: () => setHoveredNode(null),
       downNode: (e) => {
           setDraggedNode(e.node);
           // setcatKey([])
-          nodeApi.getgraphKeyWord(e.node,(res) => {
-            console.log(res)
-            // setcatKey(res)
-            catkeyword.current = res
-          })          
+        
           sigma.getGraph().setNodeAttribute(e.node, "highlighted", true);
       },
       mouseup: () => {

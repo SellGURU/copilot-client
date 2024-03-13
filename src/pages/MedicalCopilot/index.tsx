@@ -120,7 +120,9 @@ const MedicalCopilot = () => {
                     {getCatKeywords().map((item) => {
                         return (
                             <>
-                                <div className="text-[12px] text-slate-700 leading-relaxed font-poppins mb-10">{item}</div>
+                                <div className="text-[12px] text-slate-700 leading-relaxed font-poppins mb-10">
+                                    {item}
+                                </div>
                             </>
                         )
                     })}
