@@ -9,9 +9,10 @@ import Nodes from "../../api/Nodes";
 import { GetEdgeAndNodesType } from "../../types";
 import { useLayoutCircular } from "@react-sigma/layout-circular";
 export interface GraphDefaultProps {
-  exeNods:Array<string>
+  exeNods:Array<string>,
+  catkeyword :React.MutableRefObject<Array<any>>
 }
-export const GraphDefault: React.FC<GraphDefaultProps> = ({exeNods}) => {
+export const GraphDefault: React.FC<GraphDefaultProps> = ({exeNods,catkeyword}) => {
   const sigma = useSigma();
   const registerEvents = useRegisterEvents();
   const loadGraph = useLoadGraph();
@@ -19,6 +20,7 @@ export const GraphDefault: React.FC<GraphDefaultProps> = ({exeNods}) => {
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
   const [draggedNode, setDraggedNode] = useState<string | null>(null);
   const graph = new Graph();
+  const nodeApi = new Nodes()
   const positions = useGraphPosition()
   // const resolveParentNodes = (resolveString :Array<string>) => {
   //   graph.addNode(resolveString[0], { x: positions.Xlayer1, y: positions.Ylayer1, size: 15, label: resolveString[0], color:chroma.random().hex()});
@@ -86,6 +88,12 @@ export const GraphDefault: React.FC<GraphDefaultProps> = ({exeNods}) => {
       leaveNode: () => setHoveredNode(null),
       downNode: (e) => {
           setDraggedNode(e.node);
+          // setcatKey([])
+          nodeApi.getgraphKeyWord(e.node,(res) => {
+            console.log(res)
+            // setcatKey(res)
+            catkeyword.current = res
+          })          
           sigma.getGraph().setNodeAttribute(e.node, "highlighted", true);
       },
       mouseup: () => {
@@ -95,6 +103,8 @@ export const GraphDefault: React.FC<GraphDefaultProps> = ({exeNods}) => {
           }
       },
       mousedown: () => {
+          
+
           // Disable the autoscale at the first down interaction
           if (!sigma.getCustomBBox()) sigma.setCustomBBox(sigma.getBBox());
       },

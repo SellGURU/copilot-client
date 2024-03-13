@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { GetEdgeAndNodesType } from "../types";
+import { publish } from "../utils/event";
 import Api from "./Api";
 
 class Nodes extends Api {
@@ -19,6 +21,16 @@ class Nodes extends Api {
             resolve(res.data)
         })
     }
+
+    getgraphKeyWord(key:string,resolve:(res:any) => void){
+        this.post('/paragraph_keyword',{
+            category:key
+        }).then(res => {
+            console.log(res)
+            publish('changeKeywords',{})
+            resolve(res.data)
+        })
+    }    
 }
 
 export default Nodes

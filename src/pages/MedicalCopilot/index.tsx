@@ -3,10 +3,12 @@ import { ControlsContainer, FullScreenControl, SearchControl, SigmaContainer, Zo
 import { GraphDefault } from "../../components/GraphSubComponents/Graph"
 // import { LayoutForceAtlas2Control } from "@react-sigma/layout-forceatlas2"
 import { AddAditinalData, AdditinalBox, FilterBox, RefrencessData } from "../../components"
-import { useState } from "react"
+import { useReducer, useRef, useState } from "react"
 import { ChatType } from "../../types"
 import FlowTest from "../../api/Flow"
 import TestPage from "../../api/TestPage"
+import { subscribe } from "../../utils/event"
+import { useConstructor } from "../../help"
 // import TestPage from "../../api/TestPage"
 
 const MedicalCopilot = () => {
@@ -67,6 +69,13 @@ const MedicalCopilot = () => {
         setText('')    
 
     }
+    const [, forceUpdate] = useReducer(x => x + 1, 0);
+    useConstructor(() => {
+        subscribe('changeKeywords',() => {
+            console.log('changeKeywords')
+            forceUpdate()
+        })        
+    })
     const getRefrencess =(selectChat:ChatType) => {
         const testApi = new TestPage()
         testApi.relatedNodes({
@@ -80,12 +89,21 @@ const MedicalCopilot = () => {
             }
         })
     }
+    const catkeywords= useRef<Array<any>>([])
+    // const [catKey,setcatKey] = useState<Array<any>>([])
+    const getCatKeywords = () => {
+        if(catkeywords.current){
+            return  catkeywords.current   
+        }else {
+            return []
+        }
+    }
 
     return (
         <>
         <div className="w-[100%] relative">
             <SigmaContainer style={{ height: "100vh", width: "100%" }}>
-                <GraphDefault exeNods={exeNods}></GraphDefault>
+                <GraphDefault  catkeyword={catkeywords} exeNods={exeNods}></GraphDefault>
                 {/* <LoadGraph /> */}
             <ControlsContainer position={"bottom-right"}>
                 <ZoomControl />
@@ -97,6 +115,17 @@ const MedicalCopilot = () => {
             </ControlsContainer>      
                 
             </SigmaContainer>
+            {getCatKeywords().length > 0 ?
+                <div style={{resize:'both'}}  className="bg-white resize-x absolute p-4 overflow-y-scroll overflow-x-hidden border rounded-md w-[340px] chatBoxScroolBar h-[250px] shadow-lg left-6 top-8">
+                    {getCatKeywords().map((item) => {
+                        return (
+                            <>
+                                <div className="text-[12px] text-slate-700 leading-relaxed font-poppins mb-10">{item}</div>
+                            </>
+                        )
+                    })}
+                </div>
+            :undefined}
             <div className="absolute bottom-14 left-6">
                 <AdditinalBox isLoading={chatLoading} getRefrences={getRefrencess} chats={chats} sendToApi={sendToApi} additinalDataResolves={additinalDataResolves} setAdditinalDataResolved={setAdditinalDataResolved} additinalData={additinalData} setAditinalData={setAditinalData}></AdditinalBox>
             </div>
