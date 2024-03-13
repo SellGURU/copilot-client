@@ -7,12 +7,12 @@ import { resolveMenuFromRoutes } from "../../help";
 
 const SideMenu:React.FC = () => {
     const sideMenuItems:Array<SideMenuItem>=[ 
-        {title:"Overview" , src:"./icons/Overview.svg" , path:'/overview'},
-        {title:"Risks" , src:"./icons/Risks.svg " , path:'/risks'},
-        {title:"Interventions" , src:"./icons/Interventions.svg " , path:'/interventions' },
-        {title:"Biomarkers" , src:"./icons/Biomarkers.svg " , path:'/' },
-        {title:"Medical Copilot" , src:"./icons/MedicalCopilot.svg " , path:'/MedicalCopilot' },
-        {title:"About" , src:"./icons/About.svg " , path:'/' },
+        // {title:"Overview" , src:"./icons/Overview.svg" , path:'/overview'},
+        // {title:"Risks" , src:"./icons/Risks.svg " , path:'/risks'},
+        // {title:"Interventions" , src:"./icons/Interventions.svg " , path:'/interventions' },
+        // {title:"Biomarkers" , src:"./icons/Biomarkers.svg " , path:'/' },
+        {title:"Medical Copilot" , src:"./icons/MedicalCopilot.svg " , path:'/' },
+        // {title:"About" , src:"./icons/About.svg " , path:'/' },
     ];
     const [clickedItem, setClickedItem] = useState<SideMenuItem>(resolveMenuFromRoutes(sideMenuItems));
     const navigate = useNavigate()

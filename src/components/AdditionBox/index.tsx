@@ -25,19 +25,26 @@ const AdditinalBox:React.FC<AdditinalBoxProps> = ({setAditinalData,isLoading,get
             (res) => {
             if (res.data.additional_data) {
               setAditinalData(res.data.additional_data);
+            //   console.log(res.data.additional_data["AI Generated"])
+              if(res.data.additional_data["AI Generated"]){
+                    makeAdditinaljson(
+                            "AI Generated",
+                            'True'
+                    );
+              }
               setShowAdditinal(true)
             }
             }
         );        
     }  
     const [files,setFiles] = useState<any>([])
-    const resolveSassionName = () => {
-        const date = new Date();
-        const yers = date.getFullYear();
-        const month = date.getMonth() + 1;
-        const day = date.getDate();
-        return "Test_" + yers + "_" + month + "_" + day;
-    };    
+    // const resolveSassionName = () => {
+    //     const date = new Date();
+    //     const yers = date.getFullYear();
+    //     const month = date.getMonth() + 1;
+    //     const day = date.getDate();
+    //     return "Test_" + yers + "_" + month + "_" + day;
+    // };    
     const makeAdditinaljson = (key: string, value: any) => {
         const resolved: Array<any> = additinalDataResolves;
         resolved.forEach((item: any) => {
@@ -81,7 +88,7 @@ const AdditinalBox:React.FC<AdditinalBoxProps> = ({setAditinalData,isLoading,get
                             <hr className="my-4" />
                             <div className="px-4 ">
                               <div className="h-[220px] overflow-y-scroll chatBoxScroolBar">
-                            <div className="col-span-12 mb-4 px-[21px]">
+                            {/* <div className="col-span-12 mb-4 px-[21px]">
                                 <FormLabel
                                     htmlFor="modal-form-1"
                                     className="text-[14px]  leading-[19.12px] font-[500] text-[#3C3744]"
@@ -100,7 +107,7 @@ const AdditinalBox:React.FC<AdditinalBoxProps> = ({setAditinalData,isLoading,get
                                     className="w-full border rounded-lg h-[40px] text-sm px-[16px]"
                                     />
                                 </div>
-                            </div>                             
+                            </div>                              */}
                               {Object.entries(additinalData).map((item) => {
                                 const [key, value]: [string, any] = item;
                                 return (
@@ -232,7 +239,9 @@ const AdditinalBox:React.FC<AdditinalBoxProps> = ({setAditinalData,isLoading,get
                                                 );
                                             }}
                                             >
-                                            <option value={""}>not selected</option>
+                                            {key != "AI Generated"?
+                                             <option value={""}>not selected</option>
+                                            :undefined}
                                             {value.map((ite: any) => {
                                                 return (
                                                 <option className="" value={ite}>
