@@ -123,9 +123,11 @@ const MedicalCopilot = () => {
                                 <div className="text-[12px] text-slate-700 leading-relaxed font-poppins mb-10">
                                    <div className="flex items-center justify-between">
                                         <div className="text-[10px] text-slate-500">{Object.keys(item)[0].substring(0, 45)}</div>
-                                        <div className="text-[10px] text-slate-500"> pages: {item[Object.keys(item)[0]][1].page_numbers.length> 0?item[Object.keys(item)[0]][1].page_numbers.map((el:any) =><span>{el} ,</span>) : ''}</div>
+                                        {item[Object.keys(item)[0]][1].page_numbers.length> 0?
+                                            <div className="text-[10px] text-slate-500"> pages: {item[Object.keys(item)[0]][1].page_numbers.length> 0?item[Object.keys(item)[0]][1].page_numbers.map((el:any) =><span>{el} ,</span>) : ''}</div>
+                                        :undefined}
                                    </div>
-                                    <div className="my-2 ml-2 h-20 chatBoxScroolBar overflow-y-scroll">
+                                    <div className="my-2 ml-2 border p-1 overflow-x-hidden h-20 chatBoxScroolBar overflow-y-scroll">
                                         {item[Object.keys(item)[0]][0].text}
                                     </div>
                                 </div>
