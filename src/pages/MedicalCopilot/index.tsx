@@ -10,6 +10,11 @@ import TestPage from "../../api/TestPage"
 import { subscribe } from "../../utils/event"
 import { useConstructor } from "../../help"
 // import TestPage from "../../api/TestPage"
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import { toast } from "react-toastify"
 
 const MedicalCopilot = () => {
     const [showAdditinalModal,setShowAdditinalModal] = useState(false)
@@ -116,11 +121,11 @@ const MedicalCopilot = () => {
                 
             </SigmaContainer>
             {getCatKeywords().length > 0 ?
-                <div style={{resize:'both'}}  className="bg-white resize-x absolute p-4 overflow-y-scroll overflow-x-hidden border rounded-md w-[340px] chatBoxScroolBar h-[250px] shadow-lg left-6 top-8">
+                <div style={{resize:'both'}}  className="bg-white select-none resize-x absolute p-4 overflow-y-scroll overflow-x-hidden border rounded-md w-[450px] chatBoxScroolBar h-[200px] shadow-lg left-6 top-8">
                     {getCatKeywords().map((item) => {
                         return (
                             <>
-                                <div className="text-[12px] text-slate-700 leading-relaxed font-poppins mb-10">
+                                {/* <div className="text-[12px] text-slate-700 leading-relaxed font-poppins mb-10">
                                    <div className="flex items-center justify-between">
                                         <div className="text-[10px] text-slate-500">{Object.keys(item)[0].substring(0, 45)}</div>
                                         {item[Object.keys(item)[0]][1].page_numbers.length> 0?
@@ -130,6 +135,27 @@ const MedicalCopilot = () => {
                                     <div className="my-2 ml-2 border p-1 overflow-x-hidden h-20 chatBoxScroolBar overflow-y-scroll">
                                         {item[Object.keys(item)[0]][0].text}
                                     </div>
+                                </div> */}
+                                <div className="mb-2">
+                                    <Accordion>
+                                        <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel1-content"
+                                        id="panel1-header"
+                                        className="text-[12px] overflow-x-hidden font-poppins"
+                                        >
+                                        {Object.keys(item)[0].substring(0,25)}
+                                        <span>{Object.keys(item)[0].length >= 25 ?'...':''}</span>
+                                        <span className="text-gray-400 text-[10px]">_pages: {item[Object.keys(item)[0]][1].page_numbers.length> 0?item[Object.keys(item)[0]][1].page_numbers: ''}</span>
+                                        </AccordionSummary>
+                                        <AccordionDetails onDoubleClick={() => {
+                                            navigator.clipboard.writeText(item[Object.keys(item)[0]][0].text)
+                                            toast.info('copied to clipboard')
+                                        }} className="text-sm">
+                                            {item[Object.keys(item)[0]][0].text}
+                                        </AccordionDetails>
+                                    </Accordion>                                
+
                                 </div>
                             </>
                         )
